@@ -1,0 +1,69 @@
+﻿
+/* Standard Page Structure */
+.no-display {
+    display: none;
+}
+
+content {
+    max-width: 100%;
+}
+
+main {
+    padding: 20px 40px;
+}
+
+header {
+    display: flex;
+    height: 80px;
+    /*background-color: #527D21;*/
+    background-image: linear-gradient(to right, #527D21, #88CC33);
+}
+
+.header-title {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 35px;
+    margin-top: 25px;
+}
+
+    .header-title > span {
+        font-weight: normal;
+        font-size: 22px;
+    }
+
+menu {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.dhx_menu-nav {
+    padding: 0 25px;
+}
+
+.dhx_menu-nav__item > .dhx_nav-menu-button, .dhx_menu-button, .dhx_menu-button__caret {
+    color: white;
+}
+
+.dhx_menu-button {
+    font-size: 13px;
+    padding: 5px 10px;
+}
+
+.dhx_menu-button--active:not(:disabled), .dhx_menu-button:active:not(:disabled), .dhx_menu-button:focus:not(:disabled), .dhx_menu-button:hover:not(:disabled) {
+    background-color: black;
+    color: #ecec33
+}
+
+ul.dhx_widget {
+    background-color: black;
+}
+
+.dhx_widget--bg_dark--context-menu {
+    background-color: black;
+}
+
+.dhx_menu-button--disabled *, .dhx_menu-button:disabled * {
+    color: white;
+}

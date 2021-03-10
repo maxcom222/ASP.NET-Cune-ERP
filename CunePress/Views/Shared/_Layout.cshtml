@@ -1,0 +1,1486 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - 10D</title>
+
+    <link rel="stylesheet" href="~/codebase/suite.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/common/index.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/layout/common/layout.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/site.css" asp-append-version="true">
+    <style>
+        .dhx_sample-container {
+            min-height: 200px;
+            height: 200px;
+        }
+
+            .dhx_sample-container > div {
+                width: 50%;
+            }
+
+            .dhx_sample-container div:first-child {
+                margin-right: 20px;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <label class="header-title">
+            10D <span class="text-white">@ViewData["Title"]</span>
+        </label>
+    </header>
+    <menu>
+        <div class="dhx_sample-container__widget" id="menu-config"></div>
+    </menu>
+    <content>
+        <main role="main" class="pb-3">@RenderBody()</main>
+    </content>
+    <script type="text/javascript" src="~/jquery.min.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/codebase/suite.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/menu/common/common.js"></script>
+    <script>
+        var menuConf = new dhx.Menu("menu-config", {
+            css: 'dhx_widget--bg_dark',
+            navigationType: "click",
+            data: [
+                {
+                    "id": "1",
+                    "value": "Hot",
+                    "items": [
+                        {
+                            "id": "2",
+                            "disabled": true,
+                            "value": "BOOKS"
+                        },
+                        {
+                            "id": "3",
+                            "value": "Catalogs",
+                            "items": [
+                                {
+                                    "id": "4",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/ViewCatalogs">View Catalogs</a>'
+                                },
+                                {
+                                    "id": "5",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/CatalogAdmin">Catalog Admin</a>'
+                                },
+                                {
+                                    "id": "6",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/CatalogContent">Catalog Content</a>'
+                                },
+                                {
+                                    "id": "7",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/CatalogExport">Catalog Export</a>'
+                                }
+                            ]
+                        },
+                        {
+                            "id": "8",
+                            "value": "View Book Data",
+                            "items": [
+                                {
+                                    "id": "9",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/ISBNS">ISBNs (Book Data)</a>'
+                                },
+                                {
+                                    "id": "10",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/BookCatalogExport">Catalog Export</a>'
+                                },
+                                {
+                                    "id": "12",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/Inventory">Inventory (Taxes)</a>'
+                                }
+                            ]
+                        },
+                        {
+                            "id": "13",
+                            "type": "customHTML",
+                            "html": '<a class="dhx_button dhx_menu-button" href="/Books">Cune Books</a>'
+                        },
+                        {
+                            "id": "14",
+                            "type": "customHTML",
+                            "html": '<a class="dhx_button dhx_menu-button" href="/Authors">Cune Authors</a>'
+                        },
+                        {
+                            "id": "15",
+                            "type": "customHTML",
+                            "html": '<a class="dhx_button dhx_menu-button" href="/InventoryHome">Inventory Home</a>'
+                        },
+                        {
+                            "type": "separator"
+                        },
+                        {
+                            "id": "16",
+                            "disabled": true,
+                            "value": "CONTACTS"
+                        },
+                        {
+                            "id": "17",
+                            "type": "customHTML",
+                            "html": '<a class="dhx_button dhx_menu-button" href="/AddContact">Add Contact</a>'
+                        },
+                        {
+                            "id": "18",
+                            "value": "Author Splash Page",
+                            "items": [
+                                {
+                                    "id": "19",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/AuthorContributor">Select an Author Contributor</a>',
+                                }
+                            ]
+                        },
+                        {
+                            "id": "20",
+                            "type": "customHTML",
+                            "html": '<a class="dhx_button dhx_menu-button" href="/ViewGroups">View Groups</a>'
+                        },
+                        {
+                            "id": "21",
+                            "value": "Authors",
+                            "items": [
+                                {
+                                    "id": "22",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/ViewAuthors">View Authors</a>',
+                                },
+                                {
+                                    "id": "23",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/AuthorEvents">Author Events</a>',
+                                },
+                                {
+                                    "id": "24",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/AuthorMedia">Author Media</a>',
+                                }
+                            ]
+                        },
+                        {
+                            "type": "separator"
+                        },
+                        {
+                            "id": "25",
+                            "disabled": true,
+                            "value": "REPORTS"
+                        },
+                        {
+                            "id": "26",
+                            "value": "Sales",
+                            "items": [
+                                {
+                                    "id": "tax_reports",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/TaxReports">Tax Reports</a>',
+                                },
+                                {
+                                    "id": "sales_reports",
+                                    "value": "Sales Reports",
+                                    "items": [
+                                        {
+                                            "id": "invoice_only",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/InvoiceOnly">IO - Invoice Only</a>',
+                                        },
+                                        {
+                                            "id": "legacy_sales",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/LegacySales">Legacy Sales</a>',
+                                        },
+                                    ]
+                                },
+                                {
+                                    "id": "view_all_invoices",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/ViewAllInvoices">View All Invoices</a>',
+                                },
+                                {
+                                    "id": "customer_home",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/CustomerHome">Customer Home</a>',
+                                },
+                                {
+                                    "id": "vendor_home",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/VendorHome">Vendor Home</a>',
+                                },
+                                {
+                                    "id": "sales_manage",
+                                    "value": "Manage",
+                                    "items": [
+                                        {
+                                            "id": "manage_payment_terms",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ManagePaymentTerms">Manage Payment Terms</a>',
+                                        },
+                                        {
+                                            "id": "sales_to_localities",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/SalesToLocalities">Sales To Localities</a>',
+                                        },
+                                        {
+                                            "id": "manage_sales_tax",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ManageSalesTax">Manage Sales Tax</a>',
+                                        },
+                                        {
+                                            "id": "manage_warehouses",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ManageWarehouses">Manage Warehouses</a>',
+                                        },
+                                    ]
+                                },
+                                {
+                                    "id": "sales_order",
+                                    "value": "Order",
+                                    "items": [
+                                        {
+                                            "id": "view_manage_orders",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ViewManageOrders">ViewManage Orders</a>',
+                                        },
+                                        {
+                                            "id": "payment_order_entry",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/PaymentOrderEntry">Payment Order Entry</a>',
+                                        },
+                                        {
+                                            "id": "recurring_shipments_today",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/RecurringShipmentsToday">Recurring Shipments - Due Today</a>',
+                                        },
+                                        {
+                                            "id": "recurring_shipments_all",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/RecurringShipmentsAll">Recurring Shipments - All Pending</a>',
+                                        },
+                                        {
+                                            "id": "failed_transactions",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/FailedTransactions">Failed Transactions</a>',
+                                        },
+                                        {
+                                            "id": "ivew_orders_fraud",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ViewOrdersFraud">View Orders Marked As Fraud</a>',
+                                        },
+                                        {
+                                            "id": "refund_history",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/RefundHistory">Refund History</a>',
+                                        },
+                                        {
+                                            "id": "sales_reports2",
+                                            "value": "Reports",
+                                            "items": [
+                                                {
+                                                    "id": "customer_reports",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/CustomerReports">Customer Reports</a>',
+                                                },
+                                                {
+                                                    "id": "order_reports",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/OrderReports">Order Reports</a>',
+                                                },
+                                                {
+                                                    "id": "orders_by_category",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/OrdersByCategory">Orders By Category</a>',
+                                                },
+                                                {
+                                                    "id": "summary_stats",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/SummaryStats">Summary Stats</a>',
+                                                },
+                                                {
+                                                    "id": "customer_emails",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/CustomerEmails">Customer Emails</a>',
+                                                },
+                                                {
+                                                    "id": "custom_report",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/CustomReport">Custom Report</a>',
+                                                },
+                                            ]
+                                        },
+                                        {
+                                            "id": "export_data",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ExportData">Export Data</a>',
+                                        },
+                                        {
+                                            "id": "define_customer_levels",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/DefineCustomerLevels">Define Customer Levels</a>',
+                                        },
+                                        {
+                                            "id": "shipping",
+                                            "value": "Shipping",
+                                            "items": [
+                                                {
+                                                    "id": "shipping_methods",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/ShippingMethods">Shipping Methods</a>',
+                                                },
+                                                {
+                                                    "id": "shipping_rates_table",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/ShippingRatesTable">Shipping Rates Table</a>',
+                                                },
+                                                {
+                                                    "id": "shipping_fedex_meter",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/ShippingFedExMeter">Shipping FedEx Meter</a>',
+                                                },
+                                            ]
+                                        },
+                                        {
+                                            "id": "taxes",
+                                            "value": "Taxes",
+                                            "items": [
+                                                {
+                                                    "id": "edit_states",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/EditStates">Edit States</a>',
+                                                },
+                                                {
+                                                    "id": "edit_countries",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/EditCountries">Edit Countries</a>',
+                                                },
+                                                {
+                                                    "id": "tax_rates_by_zipcode",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/TaxRatesByZipCode">Tax Rates By ZipCode</a>',
+                                                },
+                                            ]
+                                        },
+                                    ]
+                                },
+                            ]
+                        },
+                        {
+                            "id": "27",
+                            "disabled": true,
+                            "value": "OTHER"
+                        },
+                        {
+                            "id": "28",
+                            "value": "Green Buttons_Frequent",
+                            "items": [
+                                {
+                                    "id": "29",
+                                    "value": "Sales",
+                                    "items": [
+                                        {
+                                            "id": "30",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/TaxReports">Tax Reports</a>',
+                                        },
+                                        {
+                                            "id": "31",
+                                            "value": "Sales Reports",
+                                            "items": [
+                                                {
+                                                    "id": "32",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/SalesReportsInvoiceOnly">IO - Invoices Only</a>',
+                                                },
+                                                {
+                                                    "id": "33",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/ProductsXInvoices">PXI - Products x Invoices</a>',
+                                                },
+                                                {
+                                                    "id": "34",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/ReportsLegacySales">Legacy Sales</a>',
+                                                },
+                                            ]
+                                        },
+                                        {
+                                            "id": "35",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ViewAllINvoices">View All Invoices</a>',
+                                        },
+                                        {
+                                            "id": "36",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ViewDeletedINvoices">View Deleted Invoices</a>',
+                                        },
+                                        {
+                                            "id": "37",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/CustomerHome">Customer Home</a>',
+                                        },
+                                        {
+                                            "id": "38",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/VendorHome">Vendor Home</a>',
+                                        },
+                                        {
+                                            "id": "39",
+                                            "value": "Manage",
+                                            "items": [
+                                                {
+                                                    "id": "40",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/ManagePaymentTerms">Manage Payment Terms</a>',
+                                                },
+                                                {
+                                                    "id": "41",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/SalesToLocalities">Sales To Localities</a>',
+                                                },
+                                                {
+                                                    "id": "42",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/ManageSalesTax">Manage Sales Tax</a>',
+                                                },
+                                                {
+                                                    "id": "43",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/ManageWarehouses">Manage Warehouses</a>',
+                                                },
+                                                {
+                                                    "id": "44",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/ManageInvoiceSpeed">Manage Invoice Speed</a>',
+                                                },
+                                            ]
+                                        },
+                                        {
+                                            "id": "45",
+                                            "value": "Order",
+                                            "items": [
+                                                {
+                                                    "id": "46",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/ShippingImportExport">Shipping Import/Export</a>',
+                                                },
+                                                {
+                                                    "id": "47",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/ViewManageOrders">ViewManage Orders</a>',
+                                                },
+                                                {
+                                                    "id": "48",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/PaymentOrderEntry">Payment Order Entry</a>',
+                                                },
+                                                {
+                                                    "id": "49",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/RecurringShipmentsToday">Recurring Shipments - Due Today</a>',
+                                                },
+                                                {
+                                                    "id": "50",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/RecurringShipmentsAll">Recurring Shipments - All Pending</a>',
+                                                },
+                                                {
+                                                    "id": "51",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/FailedTransactions">Failed Transactions</a>',
+                                                },
+                                                {
+                                                    "id": "52",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/ViewOrdersFraud">View Orders Marked As Fraud</a>',
+                                                },
+                                                {
+                                                    "id": "53",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/RefundHistory">Refund History</a>',
+                                                },
+                                                {
+                                                    "id": "54",
+                                                    "value": "Reports",
+                                                    "items": [
+                                                        {
+                                                            "id": "55",
+                                                            "type": "customHTML",
+                                                            "html": '<a class="dhx_button dhx_menu-button" href="/CustomerReports">Customer Reports</a>',
+                                                        },
+                                                        {
+                                                            "id": "56",
+                                                            "type": "customHTML",
+                                                            "html": '<a class="dhx_button dhx_menu-button" href="/OrderReports">Order Reports</a>',
+                                                        },
+                                                        {
+                                                            "id": "57",
+                                                            "type": "customHTML",
+                                                            "html": '<a class="dhx_button dhx_menu-button" href="/OrdersByCategory">Orders By Category</a>',
+                                                        },
+                                                        {
+                                                            "id": "58",
+                                                            "type": "customHTML",
+                                                            "html": '<a class="dhx_button dhx_menu-button" href="/SummaryStats">Summary Stats</a>',
+                                                        },
+                                                        {
+                                                            "id": "59",
+                                                            "type": "customHTML",
+                                                            "html": '<a class="dhx_button dhx_menu-button" href="/CustomerEmails">Customer Emails</a>',
+                                                        },
+                                                        {
+                                                            "id": "60",
+                                                            "type": "customHTML",
+                                                            "html": '<a class="dhx_button dhx_menu-button" href="/CustomReport">Custom Report</a>',
+                                                        },
+                                                    ]
+                                                },
+                                                {
+                                                    "id": "61",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/ExportData">Export Data</a>',
+                                                },
+                                                {
+                                                    "id": "62",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/DefineCustomerLevels">Define Customer Levels</a>',
+                                                },
+                                                {
+                                                    "id": "63",
+                                                    "value": "Shipping",
+                                                    "items": [
+                                                        {
+                                                            "id": "64",
+                                                            "type": "customHTML",
+                                                            "html": '<a class="dhx_button dhx_menu-button" href="/ShippingMethods">Shipping Methods</a>',
+                                                        },
+                                                        {
+                                                            "id": "65",
+                                                            "type": "customHTML",
+                                                            "html": '<a class="dhx_button dhx_menu-button" href="/ShippingRatesTable">Shipping Rates Table</a>',
+                                                        },
+                                                        {
+                                                            "id": "66",
+                                                            "type": "customHTML",
+                                                            "html": '<a class="dhx_button dhx_menu-button" href="/ShippingFedExMeter">Shipping FedEx Meter</a>',
+                                                        },
+                                                    ]
+                                                },
+                                                {
+                                                    "id": "67",
+                                                    "value": "Taxes",
+                                                    "items": [
+                                                        {
+                                                            "id": "68",
+                                                            "type": "customHTML",
+                                                            "html": '<a class="dhx_button dhx_menu-button" href="/EditStates">Edit States</a>',
+                                                        },
+                                                        {
+                                                            "id": "69",
+                                                            "type": "customHTML",
+                                                            "html": '<a class="dhx_button dhx_menu-button" href="/EditCountries">Edit Countries</a>',
+                                                        },
+                                                        {
+                                                            "id": "70",
+                                                            "type": "customHTML",
+                                                            "html": '<a class="dhx_button dhx_menu-button" href="/TaxRatesByZipCode">Tax Rates By ZipCode</a>',
+                                                        },
+                                                    ]
+                                                },
+                                            ]
+                                        },
+                                    ]
+                                },
+                                {
+                                    "id": "7`",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/ViewGroups">View Groups</a>'
+                                },
+                                {
+                                    "id": "72",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/AddContact">Add Contact</a>'
+                                },
+                                {
+                                    "id": "73",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/ImportContacts">Import Contacts</a>'
+                                },
+                                {
+                                    "id": "74",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/ViewDeletedContacts">View Deleted Contacts</a>'
+                                },
+                                {
+                                    "id": "75",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/ViewFiles">View Files</a>'
+                                },
+                                {
+                                    "id": "76",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/OrderHistory">Order History</a>'
+                                },
+                            ]
+                        },
+                    ]
+                },
+                {
+                    "type": "separator"
+                },
+                {
+                    "id": "77",
+                    "value": "Content",
+                    "items": [
+                        {
+                            "id": "78",
+                            "value": "OBJECTS",
+                            "disabled": true
+                        },
+                        {
+                            "id": "79",
+                            "value": "Products",
+                            "items": [
+                                {
+                                    "id": "80",
+                                    "value": "CURRENT",
+                                    "items": []
+                                },
+                                {
+                                    "id": "81",
+                                    "value": "Product Data",
+                                    "items": [
+                                        {
+                                            "id": "82",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ViewProductData">View Product Data</a>'
+                                        },
+                                        {
+                                            "id": "83",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ViewMetaItems">View Meta Items</a>'
+                                        },
+                                        {
+                                            "id": "84",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ViewAllMetas">View All Metas</a>'
+                                        },
+                                        {
+                                            "id": "85",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ExportProductData">Export Product Data</a>'
+                                        },
+                                    ]
+                                },
+                                {
+                                    "id": "86",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/BookProduction">Book Production</a>'
+                                },
+                                {
+                                    "id": "87",
+                                    "value": "Cune",
+                                    "items": [
+                                        {
+                                            "id": "88",
+                                            "value": "Books",
+                                            "items": [
+                                                {
+                                                    "id": "89",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/BookProduction">Book - Cune Press</a>'
+                                                },
+                                                {
+                                                    "id": "90",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/BookProduction">Book - Rec Reading</a>'
+                                                },
+                                            ]
+                                        },
+                                        {
+                                            "id": "91",
+                                            "value": "Virtual Products",
+                                            "items": [
+                                                {
+                                                    "id": "92",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/UtilityProducts">Utility Products</a>'
+                                                },
+                                                {
+                                                    "id": "93",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/OtherSales">Other Sales</a>'
+                                                },
+                                                {
+                                                    "id": "94",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/MscNonSale">Msc Non Sale</a>'
+                                                },
+                                            ]
+                                        },
+                                        {
+                                            "id": "95",
+                                            "value": "Tangible Products",
+                                            "items": [
+                                                {
+                                                    "id": "96",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/Cards">Cards</a>'
+                                                },
+                                                {
+                                                    "id": "97",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/GiftsClothing">Gifts - Clothing</a>'
+                                                },
+                                                {
+                                                    "id": "98",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/GiftsMerchandise">Gifts - Merchandise</a>'
+                                                },
+                                            ]
+                                        },
+                                        {
+                                            "id": "99",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/LegacyProducts">Legacy Products</a>'
+                                        },
+                                    ]
+                                },
+                                {
+                                    "id": "100",
+                                    "value": "Kinesis",
+                                    "items": [
+                                        {
+                                            "id": "101",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ViewKinesisProducts">View Kinesis Products</a>'
+                                        },
+                                        {
+                                            "id": "102",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/KinesisProductAdmin">Kinesis Product Admin</a>'
+                                        },
+                                    ]
+                                },
+                                {
+                                    "id": "103",
+                                    "value": "FUTURE",
+                                    "items": []
+                                },
+                                {
+                                    "id": "104",
+                                    "value": "Cune",
+                                    "items": [
+                                        {
+                                            "id": "105",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/BooksRecReading">Books Rec Reading</a>'
+                                        },
+                                        {
+                                            "id": "106",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/Cards">Cards</a>'
+                                        },
+                                        {
+                                            "id": "107",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/GiftsClothing">Gifts - Clothing</a>'
+                                        },
+                                        {
+                                            "id": "108",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/GiftsMerchandise">Gifts - Merchandise</a>'
+                                        },
+                                    ]
+                                },
+                            ]
+                        },
+                        {
+                            "id": "109",
+                            "value": "Avatar",
+                            "items": [
+                                {
+                                    "id": "110",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/ViewAvatars">View Avatars</a>'
+                                },
+                                {
+                                    "id": "111",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/AvatarAdmin">Avatar Admin</a>'
+                                },
+                                {
+                                    "id": "112",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/WhatIsAnAvatar">What Is An Avatar?</a>'
+                                },
+                            ]
+                        },
+                        {
+                            "type": "separator"
+                        },
+                        {
+                            "id": "113",
+                            "value": "NON-OBJECTS",
+                            "disabled": true
+                        },
+                        {
+                            "id": "113",
+                            "value": "Knowledge",
+                            "items": [
+                                {
+                                    "id": "114",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/ViewKnowledge">View Knowledge</a>'
+                                },
+                                {
+                                    "id": "115",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/Search">Search</a>'
+                                },
+                            ]
+                        },
+                        {
+                            "id": "116",
+                            "type": "customHTML",
+                            "html": '<a class="dhx_button dhx_menu-button" href="/Search">Search</a>'
+                        },
+                        {
+                            "id": "117",
+                            "value": "Guest Book",
+                            "items": [
+                                {
+                                    "id": "118",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/ViewGuestBook">View Guest Book Comments</a>'
+                                },
+                                {
+                                    "id": "119",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/AdminGuestBook">Guest Book Comments Admin</a>'
+                                },
+                            ]
+                        },
+                        {
+                            "id": "120",
+                            "value": "Free Text",
+                            "items": [
+                                {
+                                    "id": "121",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/ViewFreeText">View Free Text</a>'
+                                },
+                                {
+                                    "id": "122",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/FreeTextAdmin">Free Text Admin</a>'
+                                },
+                            ]
+                        },
+                        {
+                            "id": "123",
+                            "value": "Comments",
+                            "items": [
+                                {
+                                    "id": "124",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/DisplayAll">Display All</a>'
+                                },
+                                {
+                                    "id": "125",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/HomePageSegue">Home Page Segue</a>'
+                                },
+                                {
+                                    "id": "126",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/Article">Article</a>'
+                                },
+                                {
+                                    "id": "127",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/Site">Site</a>'
+                                },
+                            ]
+                        },
+                    ]
+                },
+                {
+                    "type": "separator",
+                },
+                {
+                    "id": "128",
+                    "value": "Publish",
+                    "items": [
+                        {
+                            "id": "129",
+                            "value": "PUBLICATIONS",
+                            "disabled": true
+                        },
+                        {
+                            "id": "130",
+                            "value": "Mapping",
+                            "items": [
+                                {
+                                    "id": "131",
+                                    "value": "Subjects",
+                                    "items": [
+                                        {
+                                            "id": "132",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ViewSubjects">View Subjects</a>'
+                                        },
+                                        {
+                                            "id": "133",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/SubjectAdmin">Subject Admin</a>'
+                                        },
+                                        {
+                                            "id": "134",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/SubjectContent">Subject Content</a>'
+                                        },
+                                    ]
+                                },
+                                {
+                                    "id": "135",
+                                    "value": "Collections",
+                                    "items": [
+                                        {
+                                            "id": "136",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ViewCollections">View Collections</a>'
+                                        },
+                                        {
+                                            "id": "137",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/CollectionAdmin">Collection Admin</a>'
+                                        },
+                                        {
+                                            "id": "138",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/CollectionContent">Collection Content</a>'
+                                        },
+                                    ]
+                                },
+                                {
+                                    "id": "139",
+                                    "value": "Tags",
+                                    "items": [
+                                        {
+                                            "id": "140",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ViewTags">View Tags</a>'
+                                        },
+                                        {
+                                            "id": "141",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/TagAdmin">Tag Admin</a>'
+                                        },
+                                        {
+                                            "id": "142",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/TagContent">Tag Content</a>'
+                                        },
+                                    ]
+                                },
+                                {
+                                    "id": "143",
+                                    "value": "Catalogs",
+                                    "items": [
+                                        {
+                                            "id": "144",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ViewCatalogs">View Catalogs</a>'
+                                        },
+                                        {
+                                            "id": "145",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/CatalogAdmin">Catalog Admin</a>'
+                                        },
+                                        {
+                                            "id": "146",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/CatalogContent">Catalog Content</a>'
+                                        },
+                                        {
+                                            "id": "147",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/CatalogExport">Catalog Export</a>'
+                                        },
+                                    ]
+                                },
+                                {
+                                    "id": "148",
+                                    "value": "Catalogs(Legacy)",
+                                    "items": [
+                                        {
+                                            "id": "149",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ViewCatalogs">View Catalogs(Legacy)</a>'
+                                        },
+                                        {
+                                            "id": "150",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/CatalogAdmin">Catalog Admin(Legacy)</a>'
+                                        },
+                                        {
+                                            "id": "151",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/CatalogContent">Catalog Content(Legacy)</a>'
+                                        },
+                                    ]
+                                },
+                            ]
+                        },
+                    ]
+                },
+                {
+                    "type": "separator",
+                },
+                {
+                    "id": "152",
+                    "value": "Promote",
+                    "items": [
+                        {
+                            "id": "153",
+                            "value": "ACTIVE",
+                            "disabled": true
+                        },
+                        {
+                            "id": "154",
+                            "value": "Catalogs",
+                            "items": [
+                                {
+                                    "id": "155",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/ViewCatalogs">View Catalogs</a>'
+                                },
+                                {
+                                    "id": "156",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/CatalogAdmin">Catalog Admin</a>'
+                                },
+                                {
+                                    "id": "157",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/CatalogContent">Catalog Content</a>'
+                                },
+                                {
+                                    "id": "158",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/CatalogExport">Catalog Export</a>'
+                                },
+                            ]
+                        },
+                        {
+                            "id": "159",
+                            "value": "Catalogs(Legacy)",
+                            "items": [
+                                {
+                                    "id": "160",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/ViewCatalogs">View Catalogs(Legacy)</a>'
+                                },
+                                {
+                                    "id": "161",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/CatalogAdmin">Catalog Admin(Legacy)</a>'
+                                },
+                                {
+                                    "id": "162",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/CatalogContent">Catalog Content(Legacy)</a>'
+                                },
+                            ]
+                        },
+                    ]
+                },
+                {
+                    "type": "separator",
+                },
+                {
+                    "id": "163",
+                    "value": "Reports",
+                    "items": [
+                        {
+                            "id": "164",
+                            "value": "CUSTOMERS",
+                            "items": [
+                                {
+                                    "id": "165",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/CustomerStatements">Customer Statements</a>'
+                                },
+                                {
+                                    "id": "166",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/CustomersxBooks">Customers x Books</a>'
+                                },
+                            ]
+                        },
+                        {
+                            "id": "167",
+                            "type": "customHTML",
+                            "html": '<a class="dhx_button dhx_menu-button" href="/Sales">SALES</a>'
+                        },
+                        {
+                            "id": "168",
+                            "type": "customHTML",
+                            "html": '<a class="dhx_button dhx_menu-button" href="/Taxes">TAXES</a>'
+                        },
+                    ]
+                },
+                {
+                    "type": "separator",
+                },
+                {
+                    "id": "169",
+                    "value": "Projects",
+                    "items": [
+                        {
+                            "id": "170",
+                            "type": "customHTML",
+                            "html": '<a class="dhx_button dhx_menu-button" href="/Projects">Projects</a>'
+                        },
+                        {
+                            "id": "171",
+                            "type": "customHTML",
+                            "html": '<a class="dhx_button dhx_menu-button" href="/ProjectCostControl">Project Cost Control</a>'
+                        },
+                        {
+                            "id": "172",
+                            "type": "customHTML",
+                            "html": '<a class="dhx_button dhx_menu-button" href="/ProjectTasks">Project Tasks</a>'
+                        },
+                    ]
+                },
+                {
+                    "type": "separator",
+                },
+                {
+                    "id": "173",
+                    "value": "Accounting",
+                    "items": [
+                        {
+                            "id": "174",
+                            "type": "customHTML",
+                            "html": '<a class="dhx_button dhx_menu-button" href="/IncomeHome">Income Home</a>'
+                        },
+                        {
+                            "id": "175",
+                            "value": "Royalities",
+                            "items": [
+                                {
+                                    "id": "176",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/ViewRoyalities">View Royalities</a>'
+                                },
+                                {
+                                    "id": "177",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/RoyalityAdmin">Royality Admin</a>'
+                                },
+                            ]
+                        },
+                        {
+                            "id": "178",
+                            "value": "Other",
+                            "items": [
+                                {
+                                    "id": "179",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/ViewDeletedTimesheets">View Deleted Timesheets</a>'
+                                },
+                                {
+                                    "id": "180",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/ViewDeletedVendorInvoices">View Deleted Vendor Invoices</a>'
+                                },
+                                {
+                                    "id": "181",
+                                    "value": "View Overhead",
+                                    "items": [
+                                        {
+                                            "id": "182",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/VendorInvoices">Vendor Invoices</a>'
+                                        },
+                                        {
+                                            "id": "183",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/Timesheets">Timesheets</a>'
+                                        },
+                                    ]
+                                },
+                                {
+                                    "id": "184",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/StatementHome">Statement Home</a>'
+                                },
+                                {
+                                    "id": "185",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/InventoryHome">Inventory Home</a>'
+                                },
+                            ]
+                        },
+                        {
+                            "id": "186",
+                            "value": "Setup",
+                            "items": [
+                                {
+                                    "id": "187",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/Companies">Companies</a>'
+                                },
+                                {
+                                    "id": "188",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/AccountsStatements">Accounts - Statements</a>'
+                                },
+                                {
+                                    "id": "189",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/Staff">Staff</a>'
+                                },
+                                {
+                                    "id": "190",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/LaborRates">Labor Rates</a>'
+                                },
+                                {
+                                    "id": "191",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/ProductTypes">Product Types</a>'
+                                },
+                                {
+                                    "id": "192",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/CodeTypes">Code Types</a>'
+                                },
+                                {
+                                    "id": "193",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/Templates">Templates</a>'
+                                },
+                                {
+                                    "id": "194",
+                                    "value": "Manage",
+                                    "items": [
+                                        {
+                                            "id": "195",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ManagePaymentTerms">Manage Payment Terms</a>'
+                                        },
+                                        {
+                                            "id": "196",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/SalesTaxLocalities">Sales Tax Localities</a>'
+                                        },
+                                        {
+                                            "id": "197",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ManageSalesTax">ManageSalesTax</a>'
+                                        },
+                                        {
+                                            "id": "198",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ManageWarehouses">Manage Warehouses</a>'
+                                        },
+                                        {
+                                            "id": "199",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ManageInvoiceSeed">Manage Invoice Seed</a>'
+                                        },
+                                        {
+                                            "id": "200",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/RemoveDuplicateEntities">Remove Duplicate Entities</a>'
+                                        },
+                                        {
+                                            "id": "201",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ViewDeletedDuplicatedEntities">View Deleted Duplicated Entities</a>'
+                                        },
+                                    ]
+                                },
+                                {
+                                    "id": "202",
+                                    "value": "Order",
+                                    "items": [
+                                        {
+                                            "id": "203",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ViewManageOrders">ViewManage Orders</a>',
+                                        },
+                                        {
+                                            "id": "204",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/PaymentOrderEntry">Payment Order Entry</a>',
+                                        },
+                                        {
+                                            "id": "205",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/RecurringShipmentsToday">Recurring Shipments - Due Today</a>',
+                                        },
+                                        {
+                                            "id": "206",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/RecurringShipmentsAll">Recurring Shipments - All Pending</a>',
+                                        },
+                                        {
+                                            "id": "207",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/FailedTransactions">Failed Transactions</a>',
+                                        },
+                                        {
+                                            "id": "208",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ViewOrdersFraud">View Orders Marked As Fraud</a>',
+                                        },
+                                        {
+                                            "id": "209",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/RefundHistory">Refund History</a>',
+                                        },
+                                        {
+                                            "id": "210",
+                                            "value": "Reports",
+                                            "items": [
+                                                {
+                                                    "id": "211",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/CustomerReports">Customer Reports</a>',
+                                                },
+                                                {
+                                                    "id": "212",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/OrderReports">Order Reports</a>',
+                                                },
+                                                {
+                                                    "id": "213",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/OrdersByCategory">Orders By Category</a>',
+                                                },
+                                                {
+                                                    "id": "214",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/SummaryStats">Summary Stats</a>',
+                                                },
+                                                {
+                                                    "id": "215",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/CustomerEmails">Customer Emails</a>',
+                                                },
+                                                {
+                                                    "id": "216",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/CustomReport">Custom Report</a>',
+                                                },
+                                            ]
+                                        },
+                                        {
+                                            "id": "217",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/ExportData">Export Data</a>',
+                                        },
+                                        {
+                                            "id": "218",
+                                            "type": "customHTML",
+                                            "html": '<a class="dhx_button dhx_menu-button" href="/DefineCustomerLevels">Define Customer Levels</a>',
+                                        },
+                                        {
+                                            "id": "219",
+                                            "value": "Shipping",
+                                            "items": [
+                                                {
+                                                    "id": "220",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/ShippingMethods">Shipping Methods</a>',
+                                                },
+                                                {
+                                                    "id": "221",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/ShippingRatesTable">Shipping Rates Table</a>',
+                                                },
+                                                {
+                                                    "id": "222",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/ShippingFedExMeter">Shipping FedEx Meter</a>',
+                                                },
+                                            ]
+                                        },
+                                        {
+                                            "id": "223",
+                                            "value": "Taxes",
+                                            "items": [
+                                                {
+                                                    "id": "224",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/EditStates">Edit States</a>',
+                                                },
+                                                {
+                                                    "id": "225",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/EditCountries">Edit Countries</a>',
+                                                },
+                                                {
+                                                    "id": "226",
+                                                    "type": "customHTML",
+                                                    "html": '<a class="dhx_button dhx_menu-button" href="/TaxRatesByZipCode">Tax Rates By ZipCode</a>',
+                                                },
+                                            ]
+                                        },
+                                    ]
+                                },
+                            ]
+                        },
+                    ]
+                },
+                {
+                    "type": "separator",
+                },
+                {
+                    "id": "227",
+                    "value": "Staff",
+                    "items": [
+                        {
+                            "id": "231",
+                            "value": "Timesheets",
+                            "items": [
+                                {
+                                    "id": "228",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/Kinesis">Kinesis</a>',
+                                },
+                                {
+                                    "id": "229",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/Cune">Cune</a>',
+                                },
+                                {
+                                    "id": "230",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/Print">Print</a>',
+                                },
+                                {
+                                    "id": "232",
+                                    "type": "customHTML",
+                                    "html": '<a class="dhx_button dhx_menu-button" href="/Payroll">Payroll</a>',
+                                },
+                            ]
+                        },
+                    ]
+                },
+            ]
+        });
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
