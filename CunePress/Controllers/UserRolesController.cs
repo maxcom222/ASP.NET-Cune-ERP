@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CunePress.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CunePress.Controllers
 {
@@ -19,6 +20,7 @@ namespace CunePress.Controllers
             _roleManager = roleManager;
             _userManager = userManager;
         }
+        /*[Authorize(Roles = "SuperAdmin")]*/
         public async Task<IActionResult> Index()
         {
             var users = await _userManager.Users.ToListAsync();

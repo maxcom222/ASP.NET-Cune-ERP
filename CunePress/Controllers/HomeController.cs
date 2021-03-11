@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace CunePress.Controllers
 {
+    /*[AllowAnonymous]*/
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -18,8 +19,6 @@ namespace CunePress.Controllers
         {
             _logger = logger;
         }
-
-        /*[AllowAnonymous]*/
         public IActionResult Index()
         {
             return View();
