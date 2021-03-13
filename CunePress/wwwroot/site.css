@@ -163,3 +163,15 @@ ul.dhx_widget {
 td {
     padding: 0px 10px;
 }
+
+.dhx_toolbar {
+    background-image: linear-gradient(to right, #527D21, #88CC33);
+}
+
+.dhx_window .dhx_window-header .dhx_toolbar {
+    padding: 15px 28px 10px;
+}
+
+.dhx_window-content {
+    color: black;
+}

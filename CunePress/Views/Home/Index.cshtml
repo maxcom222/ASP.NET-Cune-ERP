@@ -16,7 +16,7 @@
     <div>
         <div class="row">
             <div class="col-md-auto">
-                <a href="#" onclick="showNote()" class="font-12 font-weight-bold home-link-color">Admin Edit</a>
+                <a href="#" class="font-12 font-weight-bold home-link-color">Admin Edit</a>
             </div>
             <div class="col-md-auto">
                 <a href="#" class="font-12 font-weight-bold home-link-color">Range</a>
@@ -37,7 +37,7 @@
                 <tr>
                     <td width="200px">
                         <div style="display: flex; align-items: center;">
-                            <a href="#" class="font-12 font-weight-bold home-link-color" style="display: contents;">
+                            <a href="#" onclick="showNote()" class="font-12 font-weight-bold home-link-color" style="display: contents;">
                                 <span>$</span>
                                 <span style="border-bottom: 2px dotted #00697C; flex: 1">&nbsp;</span>
                                 <span>:</span>
@@ -310,9 +310,19 @@
         </div>
     </div>
 </div>
-<div id="note_window" style="display:none;">
-    <p>Here is the modal mode, which blocks all other windows and leaves only the main window active.</p>
-    <img style='display: block; width: 200px; height: 200px; margin-top: 20px; margin-left: auto; margin-right: auto' src='~/window/common/developer.svg'>
+<div id="note_window" style="display: none;">
+    <p class="font-12 font-weight-bold mb-0">Receivables:</p>
+    <p class="font-12">
+        This is the $ total of unpaid invoices minus income that we have received but not yet processed.
+    </p>
+    <p class="font-12 font-weight-bold mb-0">Income Not Processed:</p>
+    <p class="font-12">
+        Income (eg. an ach transfer or a check) that has not yet been applied to invoices. See also: the IH (Income Home) page.
+    </p>
+    <p class="font-12 font-weight-bold mb-0">Overdue:</p>
+    <p class="font-12">
+        Invoices that are past due for payment minus income that we have received but not yet processed. See also: the Aged Statements on the CH page; the Aging summary above the invoice table on the CH page.
+    </p>
 </div>
 @section Scripts {
     <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
@@ -325,9 +335,9 @@
             value: new Date('@ViewData["date"]')
         });
         function showNote() {
-            var dhxWindow = new dhx.Window({ width: 440, height: 520, title: "Modal Window", modal: true });
+            var dhxWindow = new dhx.Window({ width: 440, height: 320, title: "$ Note", movable: true, closable: true, modal: true });
             dhxWindow.show();
-            dhxWindow.attachObject("note_window");
+            dhxWindow.attachHTML($("#note_window").html());
         }
     </script>
 }
