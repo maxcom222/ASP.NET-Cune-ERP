@@ -2,7 +2,332 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@section CSS {
+    <link rel="stylesheet" href="~/calendar/common/calendar.css" asp-append-version="true">
+    <style>
+        #cke_editor {
+            margin: 20px 15px;
+            width: 100%;
+        }
+    </style>
+}
+<div class="d-flex">
+    <label class="" style="color: blue; font-size: 15px; font-weight: 500; width: 265px;">@ViewData["date"]</label>
+    <div>
+        <div class="row">
+            <div class="col-md-auto">
+                <a href="#" onclick="showNote()" class="font-12 font-weight-bold home-link-color">Admin Edit</a>
+            </div>
+            <div class="col-md-auto">
+                <a href="#" class="font-12 font-weight-bold home-link-color">Range</a>
+            </div>
+        </div>
+    </div>
 </div>
+<div class="d-flex">
+    <div id="calendar"></div>
+    <div class="right-panel">
+        <div class="home-border" style="width: 100%; padding: 5px 5px;">
+            <table style="width: 100%;">
+                <tr>
+                    <td colspan="2">
+                        <span class="font-12 font-weight-bold text-black">CUNE PRESS RECEIVABLES</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200px">
+                        <div style="display: flex; align-items: center;">
+                            <a href="#" class="font-12 font-weight-bold home-link-color" style="display: contents;">
+                                <span>$</span>
+                                <span style="border-bottom: 2px dotted #00697C; flex: 1">&nbsp;</span>
+                                <span>:</span>
+                            </a>
+                        </div>
+                    </td>
+                    <td>
+                        <a href="#" class="font-12 font-weight-bold home-link-color">Receivables</a> |
+                        <a href="#" class="font-12 font-weight-bold home-link-color">Income Not Processed</a> |
+                        <a href="#" class="font-12 font-weight-bold home-link-color">Overdues</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200px">
+                        <div style="display: flex; align-items: center;">
+                            <a href="#" class="font-12 font-weight-bold home-link-color" style="display: contents;">
+                                <span>Aging</span>
+                                <span style="border-bottom: 2px dotted #00697C; flex: 1">&nbsp;</span>
+                                <span>:</span>
+                            </a>
+                        </div>
+                    </td>
+                    <td>
+                        <a href="#" class="font-12 font-weight-bold home-link-color">0 - 89</a> |
+                        <a href="#" class="font-12 font-weight-bold home-link-color">90 - 269</a> |
+                        <a href="#" class="font-12 font-weight-bold home-link-color">270 - 768</a> |
+                        <a href="#" class="font-12 font-weight-bold home-link-color">769+</a>
+                    </td>
+                </tr>
+            </table>
+            <table style="width: 100%;border: 1px solid #909090;">
+                <tr>
+                    <td width="400px" align="right">
+                        <span class="font-12 font-weight-bold">Palestinian Authority :</span>
+                    </td>
+                    <td width="150px">
+                        <span class="font-12 font-weight-bold">9,500.00</span>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <span class="font-12 font-weight-bold">Amazon.com Services, Inc. :</span>
+                    </td>
+                    <td>
+                        <span class="font-12 font-weight-bold">4,090.68</span>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <span class="font-12 font-weight-bold">Patricia Martin Holt Enterprises :</span>
+                    </td>
+                    <td>
+                        <span class="font-12 font-weight-bold">3,127.40</span>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <span class="font-12 font-weight-bold">Without Shelter :</span>
+                    </td>
+                    <td>
+                        <span class="font-12 font-weight-bold">2,800.00</span>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <span class="font-12 font-weight-bold">WRMEA Middle East Books and More :</span>
+                    </td>
+                    <td>
+                        <span class="font-12 font-weight-bold">1,104.45</span>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <span class="font-12 font-weight-bold">Politics and Prose :</span>
+                    </td>
+                    <td>
+                        <span class="font-12 font-weight-bold">960.00</span>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" style="border-top: 1px solid #909090;">
+                        <span class="font-12 font-weight-bold">Total :</span>
+                    </td>
+                    <td style="border-top: 1px solid grey;">
+                        <span class="font-12 font-weight-bold">21,582.53</span>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <a href="#" class="font-12 font-weight-bold home-link-color">Show All</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="home-border" style="width: 100%; padding: 5px 5px; margin-top: 5px;">
+            <table style="width: 100%;">
+                <tr>
+                    <td colspan="2">
+                        <span class="font-12 font-weight-bold text-black">
+                            CUNE PRESS SALES & ANALYSIS
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200px">
+                        <div style="display: flex; align-items: center;">
+                            <a href="#" class="font-12 font-weight-bold home-link-color" style="display: contents;">
+                                <span>
+                                    Sales Reports
+                                </span>
+                                <span style="border-bottom: 2px dotted #00697C; flex: 1">&nbsp;</span>
+                                <span>:</span>
+                            </a>
+                        </div>
+                    </td>
+                    <td>
+                        <a href="#" class="font-12 font-weight-bold home-link-color">Sales x Cust Type</a> |
+                        <a href="#" class="font-12 font-weight-bold home-link-color">Sales x Cust</a> |
+                        <a href="#" class="font-12 font-weight-bold home-link-color">Sales x Prod</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200px">
+                        <div style="display: flex; align-items: center;">
+                            <a href="#" class="font-12 font-weight-bold home-link-color" style="display: contents;">
+                                <span>Amazon</span>
+                                <span style="border-bottom: 2px dotted #00697C; flex: 1">&nbsp;</span>
+                                <span>:</span>
+                            </a>
+                        </div>
+                    </td>
+                    <td>
+                        <a href="#" class="font-12 font-weight-bold home-link-color">Sales Rank</a> |
+                        <a href="#" class="font-12 font-weight-bold home-link-color">Rank x Subject</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200px">
+                        <div style="display: flex; align-items: center;">
+                            <a href="#" class="font-12 font-weight-bold home-link-color" style="display: contents;">
+                                <span>Top Dozen</span>
+                                <span style="border-bottom: 2px dotted #00697C; flex: 1">&nbsp;</span>
+                                <span>:</span>
+                            </a>
+                        </div>
+                    </td>
+                    <td>
+                        <a href="#" class="font-12 font-weight-bold home-link-color">Last 30 days</a> |
+                        <a href="#" class="font-12 font-weight-bold home-link-color">Last 90 days</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200px">
+                        <div style="display: flex; align-items: center;">
+                            <a href="#" class="font-12 font-weight-bold home-link-color" style="display: contents;">
+                                <span>Cash Flow</span>
+                                <span style="border-bottom: 2px dotted #00697C; flex: 1">&nbsp;</span>
+                                <span>:</span>
+                            </a>
+                        </div>
+                    </td>
+                    <td>
+                        <a href="#" class="font-12 font-weight-bold home-link-color">Income x Source</a> |
+                        <a href="#" class="font-12 font-weight-bold home-link-color">Income x Sales</a> |
+                        <a href="#" class="font-12 font-weight-bold home-link-color">Income x Other</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200px">
+                        <div style="display: flex; align-items: center;">
+                            <a href="#" class="font-12 font-weight-bold home-link-color" style="display: contents;">
+                                <span>Cost vs Income</span>
+                                <span style="border-bottom: 2px dotted #00697C; flex: 1">&nbsp;</span>
+                                <span>:</span>
+                            </a>
+                        </div>
+                    </td>
+                    <td>
+                        <a href="#" class="font-12 font-weight-bold home-link-color">Current Year</a> |
+                        <a href="#" class="font-12 font-weight-bold home-link-color"> Last 5 Years</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-md-auto">
+                <a href="#" class="font-12 font-weight-bold home-link-color">Web Traffic</a>
+            </div>
+        </div>
+        <div class="home-border" style="width: 100%; padding: 5px 5px;">
+            <table style="width: 100%;">
+                <tr>
+                    <td colspan="2">
+                        <span class="font-12 font-weight-bold home-link-color">
+                            Cune Press Website
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200px" align="right">
+                        <span class="font-12 font-weight-bold"></span>
+                    </td>
+                    <td width="100px" align="center">
+                        <span class="font-12 font-weight-bold home-link-color">Today</span>
+                    </td>
+                    <td width="100px" align="center">
+                        <span class="font-12 font-weight-bold home-link-color">Last Week</span>
+                    </td>
+                    <td width="100px" align="center">
+                        <span class="font-12 font-weight-bold home-link-color">Last Month</span>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td width="200px" align="right">
+                        <span class="font-12 font-weight-bold" style="color:#078BEF;">Page Views:</span>
+                    </td>
+                    <td width="100px" align="center">
+                        <span class="font-12 font-weight-bold home-link-color">0</span>
+                    </td>
+                    <td width="100px" align="center">
+                        <span class="font-12 font-weight-bold home-link-color">0</span>
+                    </td>
+                    <td width="100px" align="center">
+                        <span class="font-12 font-weight-bold home-link-color">0</span>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td width="200px" align="right">
+                        <span class="font-12 font-weight-bold" style="color:#078BEF;">Visits:</span>
+                    </td>
+                    <td width="100px" align="center">
+                        <span class="font-12 font-weight-bold home-link-color">0</span>
+                    </td>
+                    <td width="100px" align="center">
+                        <span class="font-12 font-weight-bold home-link-color">0</span>
+                    </td>
+                    <td width="100px" align="center">
+                        <span class="font-12 font-weight-bold home-link-color">0</span>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td width="200px" align="right">
+                        <span class="font-12 font-weight-bold" style="color:#078BEF;">Unique Visitors:</span>
+                    </td>
+                    <td width="100px" align="center">
+                        <span class="font-12 font-weight-bold home-link-color">0</span>
+                    </td>
+                    <td width="100px" align="center">
+                        <span class="font-12 font-weight-bold home-link-color">0</span>
+                    </td>
+                    <td width="100px" align="center">
+                        <span class="font-12 font-weight-bold home-link-color">0</span>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div class="row">
+            <div id="editor" style="margin-left: 25px; margin-top: 10px"></div>
+        </div>
+    </div>
+</div>
+<div id="note_window" style="display:none;">
+    <p>Here is the modal mode, which blocks all other windows and leaves only the main window active.</p>
+    <img style='display: block; width: 200px; height: 200px; margin-top: 20px; margin-left: auto; margin-right: auto' src='~/window/common/developer.svg'>
+</div>
+@section Scripts {
+    <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('editor');
+        var calendar = new dhx.Calendar("calendar", {
+            css: "home-border",
+            width: "250px",
+            height: "250px",
+            value: new Date('@ViewData["date"]')
+        });
+        function showNote() {
+            var dhxWindow = new dhx.Window({ width: 440, height: 520, title: "Modal Window", modal: true });
+            dhxWindow.show();
+            dhxWindow.attachObject("note_window");
+        }
+    </script>
+}

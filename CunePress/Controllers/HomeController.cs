@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace CunePress.Controllers
 {
-    /*[AllowAnonymous]*/
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -21,6 +21,7 @@ namespace CunePress.Controllers
         }
         public IActionResult Index()
         {
+            ViewData["date"] = DateTime.Now.ToString("dddd, MMMM d, yyyy h:mm tt");
             return View();
         }
 

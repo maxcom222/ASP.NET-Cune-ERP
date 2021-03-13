@@ -129,3 +129,37 @@ ul.dhx_widget {
     margin-left: 0 !important;
     margin-right: 0 !important;
 }
+
+.home-border {
+    border: 2px solid #00697C;
+}
+.home-link-color {
+    color: #00739B;
+}
+.font-11 {
+    font-size: 11px;
+}
+.font-12 {
+    font-size: 12px;
+}
+.font-13 {
+    font-size: 13px;
+}
+.font-14 {
+    font-size: 14px;
+}
+.font-15 {
+    font-size: 15px;
+}
+.font-16 {
+    font-size: 16px;
+}
+
+.right-panel {
+    width: calc(100% - 250px);
+    margin-left: 10px;
+}
+
+td {
+    padding: 0px 10px;
+}
