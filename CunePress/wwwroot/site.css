@@ -169,9 +169,13 @@ td {
 }
 
 .dhx_window .dhx_window-header .dhx_toolbar {
-    padding: 15px 28px 10px;
+    padding: 5px 28px 3px;
 }
 
 .dhx_window-content {
     color: black;
+}
+
+.dhx_navbar-title--toolbar {
+    color: white;
 }
