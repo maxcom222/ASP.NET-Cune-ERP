@@ -7,19 +7,16 @@
 
   <ItemGroup>
     <Compile Remove="css\**" />
+    <Compile Remove="wwwroot\dhtmlxEditor\**" />
     <Content Remove="css\**" />
+    <Content Remove="wwwroot\dhtmlxEditor\**" />
     <EmbeddedResource Remove="css\**" />
+    <EmbeddedResource Remove="wwwroot\dhtmlxEditor\**" />
     <None Remove="css\**" />
+    <None Remove="wwwroot\dhtmlxEditor\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\dhtmlxEditor\codebase\dhtmlxcommon.js" />
-    <None Include="wwwroot\dhtmlxEditor\codebase\dhtmlxeditor.js" />
-    <None Include="wwwroot\dhtmlxEditor\codebase\ext\dhtmlxeditor_ext.js" />
-    <None Include="wwwroot\dhtmlxEditor\samples\common\img\Thumbs.db" />
-    <None Include="wwwroot\dhtmlxEditor\sources\dhtmlxcommon.js" />
-    <None Include="wwwroot\dhtmlxEditor\sources\dhtmlxeditor.js" />
-    <None Include="wwwroot\dhtmlxEditor\sources\ext\dhtmlxeditor_ext.js" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
