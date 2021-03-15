@@ -29,7 +29,7 @@
             <div class="header-user-info">
                 @if (UserManager.GetUserAsync(User).Result.ProfilePicture != null)
                 {
-                    <img style="width:40px;height:40px; object-fit:cover; border-radius:30px; margin-top: 10px; margin-top: 10px;" 
+                    <img style="width:40px;height:40px; object-fit:cover; border-radius:30px; margin-top: 10px; margin-top: 10px;"
                          src="data:image/*;base64,@(Convert.ToBase64String(UserManager.GetUserAsync(User).Result.ProfilePicture))">
                 }
                 <a class="user-name" asp-area="Identity" asp-page="/Account/Manage/Index">Hello @User.Identity.Name!</a>
@@ -52,15 +52,7 @@
     <menu>
         <div class="dhx_sample-container__widget" id="menu-config"></div>
     </menu>
-    @if (SignInManager.IsSignedIn(User))
-    {
-        @if (@ViewData["Title"] != "Home Page")
-        {
-            <subheader>
-                <span class="text-white">@ViewData["Title"]</span>
-            </subheader>
-        }
-    }
+    @RenderSection("SUBHEADER", required: false)
     <content>
         <main role="main" class="pb-3">@RenderBody()</main>
     </content>
