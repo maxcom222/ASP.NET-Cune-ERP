@@ -311,7 +311,7 @@ table.dataTable tbody td.book:before {
 }
 
 table.dataTable tr.selected td.book:after {
-    margin-top: 0px !important;
+    margin-top: -10px !important;
 }
 
 input:focus {
