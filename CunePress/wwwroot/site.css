@@ -240,12 +240,12 @@ label.container input:checked ~ .checkmark:after {
 
 /* Style the checkmark/indicator */
 label.container .checkmark:after {
-    left: 7px;
-    top: 3px;
-    width: 5px;
-    height: 10px;
+    left: 5px;
+    top: -1px;
+    width: 7px;
+    height: 15px;
     border: solid black;
-    border-width: 0 3px 3px 0;
+    border-width: 0 2px 1px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
