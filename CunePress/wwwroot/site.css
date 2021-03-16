@@ -222,7 +222,8 @@ label.container:hover input ~ .checkmark {
 
 /* When the checkbox is checked, add a blue background */
 label.container input:checked ~ .checkmark {
-    background-color: #2196F3;
+    background-color: white;
+    border: 1px solid black;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -243,7 +244,7 @@ label.container .checkmark:after {
     top: 3px;
     width: 5px;
     height: 10px;
-    border: solid white;
+    border: solid black;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
@@ -315,4 +316,8 @@ table.dataTable tr.selected td.book:after {
 
 input:focus {
     outline: none !important
+}
+
+.btn-gray {
+    background-color: gray !important;
 }
