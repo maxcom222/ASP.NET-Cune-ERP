@@ -307,7 +307,7 @@ table.dataTable tr.selected td.select-checkbox:after, table.dataTable tr.selecte
 }
 
 table.dataTable tbody td.book:before {
-    margin-top: 20px !important;
+    margin-top: 10px !important;
 }
 
 table.dataTable tr.selected td.book:after {
@@ -319,5 +319,5 @@ input:focus {
 }
 
 .btn-gray {
-    background-color: gray !important;
+    background-color: #bdbdbd !important;
 }

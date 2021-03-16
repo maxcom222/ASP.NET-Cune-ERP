@@ -3,6 +3,7 @@
 }
 
 @section CSS {
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" asp-append-version="true">
     <link rel="stylesheet" href="~/calendar/common/calendar.css" asp-append-version="true">
     <style>
         #cke_editor {
@@ -28,7 +29,7 @@
     <div id="calendar_container">
         <div id="calendar"></div>
         <div class="mt-2">
-            <a href="#" class="font-12 font-weight-bold home-link-color mt-2">View Required Book Data</a>
+            <a href="#" class="font-12 font-weight-bold home-link-color mt-2" onclick="showRQD()">View Required Book Data</a>
         </div>
     </div>
     <div class="right-panel">
@@ -315,6 +316,77 @@
         </div>
     </div>
 </div>
+<div id="view_required_window" style="display: block; background-color: #bdbdbd;">
+    <table style="width: 100%;">
+        <tr>
+            <td width="100px" align="right">
+                <span class="font-12 font-weight-bold">Season :</span>
+            </td>
+            <td>
+                <select class="ml-2 font-12" style="width: 100px; height: 25px;">
+                    <option selected>Fall</option>
+                    <option>Spring</option>
+                    <option>Winter</option>
+                </select>
+            </td>
+        </tr>
+        <tr height="10px">
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td width="100px" align="right">
+                <span class="font-12 font-weight-bold">Year :</span>
+            </td>
+            <td>
+                <select class="ml-2 font-12" style="width: 100px; height: 25px;">
+                    @for (int i = 1994; i < 2022; i++)
+                    {
+                        @if (i == 2021)
+                        {
+                            <option selected>@i</option>
+                        }
+                        else
+                        {
+                            <option>@i</option>
+                        }
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+            </td>
+            <td>
+                <button class="btn btn-gray font-14" style="height: 26px; margin: 10px; padding: 0px 10px;">Submit</button>
+            </td>
+        </tr>
+    </table>
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Required 14 Items</th>
+                <th>Advisable Data 12 Items</th>
+                <th>Useful Data 10 Items</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>DWD</td>
+                <td><span class="font-weight-bold text-black">14</span><span class="font-weight-bold text-black"> (0)</span></td>
+                <td><span class="font-weight-bold text-black">10</span><span class="font-weight-bold text-danger"> (2)</span></td>
+                <td><span class="font-weight-bold text-black">3</span><span class="font-weight-bold text-danger"> (7)</span></td>
+            </tr>
+            <tr>
+                <td>STO</td>
+                <td><span class="font-weight-bold text-black">13</span><span class="font-weight-bold text-danger"> (1)</span></td>
+                <td><span class="font-weight-bold text-black">8</span><span class="font-weight-bold text-danger"> (4)</span></td>
+                <td><span class="font-weight-bold text-black">5</span><span class="font-weight-bold text-danger"> (5)</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 <div id="note_window" style="display: none;">
     <p class="font-12 font-weight-bold mb-0">Receivables:</p>
     <p class="font-12">
@@ -330,6 +402,7 @@
     </p>
 </div>
 @section Scripts {
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js" asp-append-version="true"></script>
     <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
     <script>
         CKEDITOR.replace('editor');
@@ -339,10 +412,24 @@
             height: "250px",
             value: new Date('@ViewData["date"]')
         });
+        $('#example').DataTable({
+            searching: false,
+            ordering: false,
+            paging: false,
+            info: false,
+            columnDefs: [
+                { "className": "dt-center", "targets": "_all" }
+            ]
+        });
         function showNote() {
             var dhxWindow = new dhx.Window({ width: 440, height: 320, title: "$ NOTE", movable: true, closable: true, modal: true });
             dhxWindow.show();
             dhxWindow.attachHTML($("#note_window").html());
+        }
+        function showRQD() {
+            var dhxWindow = new dhx.Window({ width: 700, height: 500, title: "Book Data", movable: true, closable: true, modal: true });
+            dhxWindow.show();
+            dhxWindow.attachHTML($("#view_required_window").html());
         }
     </script>
 }

@@ -60,10 +60,10 @@
             </div>
         </div>
         <div class="col-md-6">
-            <table class="subheader-table">
+            <table class="subheader-table mr-4">
                 <tr>
                     <td align="left" valign="top" style="border-left: 1px solid white;">
-                        <a href="#" class="font-12 text-white">Create an Invoice</a><br />
+                        <a class="font-12 text-white" asp-area="" asp-controller="Invoice" asp-action="Create">Create an Invoice</a><br />
                         <a href="#" class="font-12 text-white">View All Deleted Invoices</a><br />
                         <a href="#" class="font-12 text-white">View Deleted Invoices - Current Customer</a>
                     </td>
@@ -94,6 +94,7 @@
                     <span class="font-12 ml-1">Organization: </span><span class="font-12">Ingram Book Company</span>
                     <button class="btn btn-gray font-12 ml-5" style="height: 20px; margin-left: 8px; padding: 0px 10px;">...</button>
                     <span class="font-12">Contact Admin for Current Customer</span>
+                    <a href="#" class="font-14 font-weight-bold home-link-color" onclick="showDefinite()" style="margin-left: 200px;">Definitions</a>
                 </td>
             </tr>
             <tr height="30px"></tr>
@@ -206,12 +207,213 @@
         </table>
     </div>
 </div>
+<div class="row bg-white">
+    <div class="panel-title">
+        <span class="font-15 text-white ml-3" style="font-weight: 500; line-height: 40px;">
+        FILTERS RESULTS : Ingram Book Company | Frequent | Account | Display Invoices : All | 01/01/1995-03/16/2021
+        </span>
+    </div>
+    <div class="col-md-12 mb-5">
+        <table class="filter-table m-4" style="width: 100%;">
+            <tr>
+                <td align="right" valign="top" width="150px">
+                    <span class="font-12 font-weight-bold">Aged Receivables :</span>
+                </td>
+                <td>
+                    <div class="d-flex" style="margin-left: 10px; margin-top: 5px;">
+                        <div class="text-center" style="width: 100px;">
+                            <p class="font-12 font-weight-bold mb-0">0-30</p>
+                            <p class="font-12">$0.00</p>
+                        </div>
+                        <div class="text-center" style="width: 100px;">
+                            <p class="font-12 font-weight-bold mb-0">31-60</p>
+                            <p class="font-12">$0.00</p>
+                        </div>
+                        <div class="text-center" style="width: 100px;">
+                            <p class="font-12 font-weight-bold mb-0">61-90</p>
+                            <p class="font-12">$0.00</p>
+                        </div>
+                        <div class="text-center" style="width: 100px;">
+                            <p class="font-12 font-weight-bold mb-0">91-365</p>
+                            <p class="font-12">$0.00</p>
+                        </div>
+                        <div class="text-center" style="width: 100px;">
+                            <p class="font-12 font-weight-bold mb-0">366+</p>
+                            <p class="font-12">$239.6</p>
+                        </div>
+                        <div class="text-center" style="width: 100px;">
+                            <p class="font-12 font-weight-bold mb-0">Total Unpaid</p>
+                            <p class="font-12">$239.6</p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top" width="150px">
+                    <span class="font-12 font-weight-bold">Display in Table :</span>
+                </td>
+                <td>
+                    <div class="d-flex" style="margin-left: 10px; margin-top: 5px;">
+                        <div class="text-center" style="width: 100px;">
+                            <p class="font-12 font-weight-bold mb-0"># of Invoices</p>
+                            <p class="font-12">13</p>
+                        </div>
+                        <div class="text-center" style="width: 100px;">
+                            <p class="font-12 font-weight-bold mb-0"># of Units</p>
+                            <p class="font-12">300</p>
+                        </div>
+                        <div class="text-center" style="width: 100px;">
+                            <p class="font-12 font-weight-bold mb-0">Paid Invs</p>
+                            <p class="font-12">$6,846.54</p>
+                        </div>
+                        <div class="text-center" style="width: 100px;">
+                            <p class="font-12 font-weight-bold mb-0">Unpaid Invs</p>
+                            <p class="font-12">$239.6</p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="d-flex mb-3">
+            <button class="btn btn-gray font-12" style="height: 30px; margin-left: 8px; padding: 0px 10px;">Payment</button>
+            <span style="margin-left: 200px; border-left: 1px solid;"></span>
+            <select class="ml-1 font-12">
+                <option selected>Actions</option>
+                <option>Sent to Warehouse</option>
+                <option>Sent to Biling Office</option>
+            </select>
+            <a class="font-13 font-weight-bold home-link-color" href="#" style="padding-top: 4px; margin-left: 150px;">Paymnent Info</a>
+            <a class="font-13 font-weight-bold home-link-color" href="#" style="padding-top: 4px; margin-left: 80px;">Print Invoice</a>
+        </div>
+        <table id="example" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>Inv #</th>
+                    <th>Inv Date</th>
+                    <th>PO #</th>
+                    <th>PO Date</th>
+                    <th>Status</th>
+                    <th>Sale Tax</th>
+                    <th>Sale $</th>
+                    <th>Pymnt</th>
+                    <th>Payment Date</th>
+                    <th>Ch To Roy</th>
+                    <th>BadDebt</th>
+                    <th>Amt Due</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td><input type="text" class="pl-1" style="width: 80px; height: 20px;" /></td>
+                    <td><a class="home-link-color" href="#">13196</a></td>
+                    <td>11/26/2019</td>
+                    <td>IQ86128</td>
+                    <td>11/26/2019</td>
+                    <td>OS/WS</td>
+                    <td>$0.00</td>
+                    <td>-$20.83</td>
+                    <td>-$20.83</td>
+                    <td>01/01/1900</td>
+                    <td>$0.00</td>
+                    <td> $0.00</td>
+                    <td> $0.00</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="text" class="pl-1" style="width: 80px; height: 20px;" /></td>
+                    <td><a class="home-link-color" href="#">13197</a></td>
+                    <td>11/14/2019</td>
+                    <td>U1900814</td>
+                    <td>11/14/2019</td>
+                    <td>OS/WS</td>
+                    <td>$0.00</td>
+                    <td>-$8.25</td>
+                    <td>-$8.25</td>
+                    <td>01/01/1900</td>
+                    <td>$0.00</td>
+                    <td>$0.00</td>
+                    <td>$0.00</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="text" class="pl-1" style="width: 80px; height: 20px;" /></td>
+                    <td><a class="home-link-color" href="#">13195</a></td>
+                    <td>11/29/2019</td>
+                    <td>IQ83840</td>
+                    <td>11/29/2019</td>
+                    <td>OS/WS</td>
+                    <td>$0.00</td>
+                    <td>-$8.09</td>
+                    <td>-$8.09</td>
+                    <td>01/01/1900</td>
+                    <td>$0.00</td>
+                    <td>$0.00</td>
+                    <td>$0.00</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="text" class="pl-1" style="width: 80px; height: 20px;" /></td>
+                    <td><a class="home-link-color" href="#">12950</a></td>
+                    <td>09/11/2019</td>
+                    <td>NZ253E5R</td>
+                    <td>09/11/2019</td>
+                    <td>OS/WS</td>
+                    <td>$0.00</td>
+                    <td>$372.83</td>
+                    <td>$0.00</td>
+                    <td></td>
+                    <td>$0.00</td>
+                    <td>$0.00</td>
+                    <td>$372.83</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="definite_window" style="display: none;">
+    <p class="font-14 font-weight-bold mb-0">Inv = Invoice (seller's invoice to customers)</p>
+    <p class="font-14 font-weight-bold mb-3">PO = Purchase Order (customer's purchase authorization to seller)</p>
 
+    <p class="font-14 font-weight-bold mb-0">All Income (includes NYD, DEP, NYA, and APP income below)</p>
+    <p class="font-14 font-weight-bold mb-0">NYD = Income not yet Deposited (seller has received income but has not deposited)</p>
+    <p class="font-14 font-weight-bold mb-3">DEP = Deposit (customer deposited payment in bank account)</p>
+
+    <p class="font-14 font-weight-bold mb-3">NYA = Not Yet Applied (seller has received the payment but has not yet used it to cancel the charges for the invoices that were paid off by this payment. Check or ACH info will normally specify which invoices a payment applies to).</p>
+
+    <p class="font-14 font-weight-bold mb-0">APP = Income Applied to All Invoices (income has been fully applied to invoices)</p>
+    <p class="font-14 font-weight-bold mb-3">PAR = Income Applied to Some Invoices (Partial Payment)</p>
+
+    <p class="font-14 font-weight-bold mb-0">Income Tax Required Classifications for the Sale of Merchandise</p>
+    <p class="font-14 font-weight-bold mb-0">IS = In State (customer is inside Washington State ... not Washington, DC)</p>
+    <p class="font-14 font-weight-bold mb-3">OS = Out of State (customer is outside of Washington State)</p>
+
+    <p class="font-14 font-weight-bold mb-3">x</p>
+
+    <p class="font-14 font-weight-bold mb-0">WS = Wholesale (customer is a bookstore that will resell the product)</p>
+    <p class="font-14 font-weight-bold mb-3">RT = Retail (customer is the end user. He/she will not resell the product)</p>
+
+    <p class="font-14 font-weight-bold mb-0">OS/WS = Out of State / Wholesale</p>
+    <p class="font-14 font-weight-bold mb-0">IS/WS = In State / Wholesale</p>
+    <p class="font-14 font-weight-bold mb-0">OS/RT = Out of State / Retail</p>
+    <p class="font-14 font-weight-bold mb-3">IS/RT = In State / Retail</p>
+
+    <p class="font-14 font-weight-bold mb-3">Income from Fees (Editing, etc), Rights Sale, or Grant do NOT need to be broken down according the 4 categories above.</p>
+
+    <p class="font-14 font-weight-bold mb-3">CTR (Ch To Roy) = Change to Royalities (this income has been used to calcuate Author Royalities)</p>
+</div>
 
 @section Scripts {
     <script type="text/javascript" src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js" asp-append-version="true"></script>
     <script type="text/javascript" src="//cdn.datatables.net/select/1.3.2/js/dataTables.select.min.js" asp-append-version="true"></script>
     <script>
+        function showDefinite() {
+            var dhxWindow = new dhx.Window({ width: 600, height: 700, title: "Definitions", movable: true, closable: true, modal: true });
+            dhxWindow.show();
+            dhxWindow.attachHTML($("#definite_window").html());
+        }
         $('#example').DataTable({
             searching: false,
             ordering: false,

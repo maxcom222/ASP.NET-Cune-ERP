@@ -1,0 +1,82 @@
+﻿@using CunePress.Models
+@{
+    ViewData["Title"] = "CREATE AN INVOICE";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section CSS {
+    <link rel="stylesheet" href="~/combobox/common/combobox.css" asp-append-version="true">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="//cdn.datatables.net/select/1.3.2/css/select.dataTables.min.css" asp-append-version="true">
+    <style>
+        .subheader-title {
+            font-weight: bold;
+            font-size: 30px;
+            margin-left: 25px;
+            margin-top: 18px;
+        }
+
+        .subheader-company {
+            font-weight: normal;
+            font-size: 12px;
+            margin-left: 25px;
+        }
+
+        .subheader-table {
+            position: absolute;
+            top: 10px;
+            right: 5px;
+        }
+
+        body {
+            background-color: #5a585b;
+        }
+
+        .combo-width {
+            width: 200px;
+        }
+
+    </style>
+}
+@section SUBHEADER {
+    <subheader>
+        <div class="col-md-6">
+            <p class="text-white subheader-title">@ViewData["Title"]</p>
+            <div class="d-flex">
+                <div>
+                    <label class="text-white subheader-company font-12" style="padding: 3px;">Select Company: </label>
+                    <select class="ml-2 font-12">
+                        <option selected>Cune Press</option>
+                        <option>Kinesis Construction</option>
+                        <option>Cune MultiSite</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-white subheader-company font-12" style="padding: 3px;">Display Filters: </label>
+                    <select class="ml-2 font-12">
+                        <option selected>Frequent</option>
+                        <option> - All - </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <table class="subheader-table mr-4">
+                <tr>
+                </tr>
+            </table>
+        </div>
+    </subheader>
+}
+
+<div class="row bg-white">
+    <div class="panel-title">
+        <span class="font-15 text-white ml-3" style="font-weight: 500; line-height: 40px;">FILTERS</span>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/select/1.3.2/js/dataTables.select.min.js" asp-append-version="true"></script>
+    <script>
+    </script>
+}
