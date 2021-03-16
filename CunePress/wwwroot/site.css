@@ -249,3 +249,70 @@ label.container .checkmark:after {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
+.dataTable {
+    font-size: 12px !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    color: #FB9678 !important;
+    border: none !important;
+    background: none !important;
+    background-color: #E9ECEF !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    color: white !important;
+    border: none !important;
+    background: none !important;
+    background-color: #FB9678 !important;
+}
+
+.paginate_button {
+    background: none !important;
+    color: #FB9678 !important;
+    padding: 5px 10px !important;
+    border: none !important;
+}
+
+    .paginate_button:active {
+        background: none !important;
+        color: white !important;
+        outline: none !important;
+        border: none !important;
+        background-color: #f5ae99 !important;
+    }
+
+    .paginate_button:focus {
+        background: none !important;
+        outline: none !important;
+        border: none !important;
+    }
+    .paginate_button:active {
+        background: none !important;
+        outline: none !important;
+        border: none !important;
+    }
+
+table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
+    border-top: 1px solid #ddd !important;
+}
+
+.dataTables_info, .dataTables_length, .example_filter, .dataTables_filter {
+    font-size: 13px !important;
+}
+
+table.dataTable tr.selected td.select-checkbox:after, table.dataTable tr.selected th.select-checkbox:after {
+    margin-top: -25px !important;
+}
+
+table.dataTable tbody td.book:before {
+    margin-top: 20px !important;
+}
+
+table.dataTable tr.selected td.book:after {
+    margin-top: 0px !important;
+}
+
+input:focus {
+    outline: none !important
+}

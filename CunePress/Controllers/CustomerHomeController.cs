@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace CunePress.Controllers
 {
     [AllowAnonymous]
-    public class BooksController : Controller
+    public class CustomerHomeController : Controller
     {
         public IActionResult Index()
         {

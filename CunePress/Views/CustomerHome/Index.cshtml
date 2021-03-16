@@ -1,6 +1,6 @@
 ﻿@using CunePress.Models
 @{
-    ViewData["Title"] = "View Books";
+    ViewData["Title"] = "CUSTOMER HOME";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section CSS {
@@ -34,6 +34,7 @@
         .combo-width {
             width: 200px;
         }
+
     </style>
 }
 @section SUBHEADER {
@@ -41,25 +42,35 @@
         <div class="col-md-6">
             <p class="text-white subheader-title">@ViewData["Title"]</p>
             <div class="d-flex">
-                <span class="text-white subheader-company font-12" style="padding: 3px;">Company: </span>
-                <select class="ml-2 font-12">
-                    <option selected>Cune Press</option>
-                    <option>Kinesis Construction</option>
-                    <option>SCD Photography</option>
-                </select>
+                <div>
+                    <label class="text-white subheader-company font-12" style="padding: 3px;">Select Company: </label>
+                    <select class="ml-2 font-12">
+                        <option selected>Cune Press</option>
+                        <option>Kinesis Construction</option>
+                        <option>Cune MultiSite</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-white subheader-company font-12" style="padding: 3px;">Display Filters: </label>
+                    <select class="ml-2 font-12">
+                        <option selected>Frequent</option>
+                        <option> - All - </option>
+                    </select>
+                </div>
             </div>
         </div>
         <div class="col-md-6">
             <table class="subheader-table">
                 <tr>
                     <td align="left" valign="top" style="border-left: 1px solid white;">
-                        <a href="#" class="font-12 text-white">View Meta Items</a><br />
-                        <a href="#" class="font-12 text-white">Sales Report - PXI(Productx Invoices)</a>
+                        <a href="#" class="font-12 text-white">Create an Invoice</a><br />
+                        <a href="#" class="font-12 text-white">View All Deleted Invoices</a><br />
+                        <a href="#" class="font-12 text-white">View Deleted Invoices - Current Customer</a>
                     </td>
                     <td align="left" valign="top" style="border-left: 1px solid white;">
-                        <a href="#" class="font-12 text-white">Dashboard - Sales x Product</a><br />
-                        <a href="#" class="font-12 text-white">Dashboard - Sales x Customer</a><br />
-                        <a href="#" class="font-12 text-white">Dashboard - Sales x Customer Type</a>
+                        <a href="#" class="font-12 text-white">Statements</a><br />
+                        <a href="#" class="font-12 text-white">Dashboard</a><br />
+                        <a href="#" class="font-12 text-white">Sales Reports</a>
                     </td>
                 </tr>
             </table>
@@ -71,174 +82,125 @@
     <div class="panel-title">
         <span class="font-15 text-white ml-3" style="font-weight: 500; line-height: 40px;">FILTERS</span>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-12">
         <table class="filter-table m-4" style="width: 100%;">
             <tr>
                 <td width="200px" align="right">
-                    <span class="font-12 font-weight-bold">Product Filters</span>
-                </td>
-                <td></td>
-            </tr>
-            <tr>
-                <td align="right">
-                    <span class="font-12">Type :</span>
+                    <span class="font-12">Search Customer :</span>
                 </td>
                 <td>
-                    <select class="ml-2 font-12 combo-width">
-                        <option selected>Books</option>
-                    </select>
+                    <button class="btn btn-primary font-12" style="height: 20px; margin-left: 8px; padding: 0px 10px;">...</button>
+                    <span class="font-12">Last</span>, <span class="font-12">First</span>
+                    <span class="font-12 ml-1">Organization: </span><span class="font-12">Ingram Book Company</span>
+                    <button class="btn btn-primary font-12 ml-5" style="height: 20px; margin-left: 8px; padding: 0px 10px;">...</button>
+                    <span class="font-12">Contact Admin for Current Customer</span>
                 </td>
             </tr>
+            <tr height="30px"></tr>
             <tr>
                 <td align="right">
-                    <span class="font-12">Series :</span>
+                    <span class="font-12">Display Invoices :</span>
                 </td>
                 <td>
-                    <select class="ml-2 font-12 combo-width">
-                        <option selected>Cune Classics</option>
-                        <option>Cune Press</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td align="right">
-                    <span class="font-12">Year :</span>
-                </td>
-                <td>
-                    <select class="ml-2 font-12 combo-width">
-                        @for (int i = 1994; i < 2022; i++)
-                        {
-                            @if (i == 2021)
-                            {
-                                <option selected>@i</option>
-                            }
-                            else
-                            {
-                                <option>@i</option>
-                            }
-                        }
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td align="right">
-                    <span class="font-12">Season :</span>
-                </td>
-                <td>
-                    <select class="ml-2 font-12 combo-width">
-                        <option selected>Fall</option>
-                        <option>Spring</option>
-                        <option>Winter</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td align="right">
-                    <span class="font-12">Availability :</span>
-                </td>
-                <td>
-                    <select class="ml-2 font-12 combo-width">
-                        <option selected>AC</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td align="right">
-                    <span class="font-12">Display Only :</span>
-                </td>
-                <td>
-                    <div style="width: 100px; margin-left: 10px; margin-top: 5px;">
+                    <div style="width: 250px; margin-left: 10px; margin-top: 5px;">
                         <label class="container">
-                            Hardback
-                            <input type="checkbox" checked="checked">
+                            All
+                            <input type="radio" name="d_invoice" checked="checked">
                             <span class="checkmark"></span>
                         </label>
                         <label class="container">
-                            Paperback
-                            <input type="checkbox" checked="checked">
+                            Unpaid
+                            <input type="radio" name="d_invoice">
                             <span class="checkmark"></span>
                         </label>
                         <label class="container">
-                            eBooks
-                            <input type="checkbox">
+                            Unpaid (+values only) Terms: 90
+                            <input type="radio" name="d_invoice">
                             <span class="checkmark"></span>
                         </label>
                         <label class="container">
-                            Kindle
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container">
-                            Galley
-                            <input type="checkbox">
+                            Overdue
+                            <input type="radio" name="d_invoice">
                             <span class="checkmark"></span>
                         </label>
                     </div>
                 </td>
             </tr>
             <tr>
-                <td align="right">
-                    <span class="font-12">Display Input Template :</span>
+                <td align="right" valign="top" style="padding-top: 29px;">
+                    <span class="font-12">Invoices Range : # + Date</span>
                 </td>
                 <td>
-                    <button class="btn btn-primary font-12" style="height: 24px; margin: 5px 10px; padding: 5px 10px;">...</button>
+                    <div class="d-flex" style="width: 100px; margin-left: 10px; margin-top: 5px;">
+                        <label class="container" style="margin-top: 28px;">
+                            #
+                            <input type="radio" name="d_#" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
+                        <div class="d-flex" style="padding-top: 28px;">
+                            <label class="font-12">From: </label>
+                            <input type="text" class="ml-1 pl-1" style="width: 120px; height: 20px;" />
+                        </div>
+                        <div class="d-flex" style="padding-top: 28px;">
+                            <label class="font-12 ml-2">To: </label>
+                            <input type="text" class="ml-1 pl-1" style="width: 120px; height: 20px;" />
+                        </div>
+                        <div class="ml-3">
+                            <label class="font-12 mb-1">Invoices</label>
+                            <input type="text" class="pl-1" style="width: 120px; height: 20px;" />
+                            <label class="container mt-1">
+                                Return
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="ml-3">
+                            <label class="font-12 mb-1">Purchase Order</label>
+                            <input type="text" class="pl-1" style="width: 120px; height: 20px;" />
+                            <label class="container mt-1">
+                                Claim(PC/SC)
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="ml-3">
+                            <label class="font-12 mb-1">Sales $</label>
+                            <input type="text" class="pl-1" style="width: 120px; height: 20px;" />
+                            <label class="container mt-1">
+                                Fee
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="ml-3">
+                            <label class="font-12 mb-1">Advice</label>
+                            <input type="text" class="pl-1" style="width: 120px; height: 20px;" />
+                            <label class="container mt-1">
+                                Promo
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="d-flex mt-1">
+                        <a href="#" class="font-12 home-link-color" style="margin-left: 385px; margin-right: 10px;">Default Start Date</a>
+                        <input type="text" class="pl-1" style="width: 120px; height: 20px;" />
+                    </div>
                 </td>
             </tr>
             <tr>
-                <td align="right">
-                </td>
-                <td>
-                    <button class="btn btn-primary font-14" style="height: 26px; margin: 10px; padding: 0px 10px;">Submit</button>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="col-md-6">
-        <table class="filter-table m-4" style="width: 100%;">
-            <tr>
-                <td colspan="2">
-                    <a href="#" class="font-12 font-weight-bold home-link-color ml-5">Meta Data x Product</a>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <a href="#" class="font-12 font-weight-bold home-link-color ml-5">Sales Snapshot x Product</a>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <a href="#" class="font-12 font-weight-bold home-link-color ml-5">Royalties Snapshot x Product</a>
-                </td>
-            </tr>
-            <tr height="50px"></tr>
-            <tr>
-                <td width="200px" align="right">
-                    <span class="font-12 font-weight-bold">Catalogs</span>
-                </td>
-                <td></td>
-            </tr>
-            <tr>
-                <td align="right">
-                    <span class="font-12">Selet a Catalog :</span>
-                </td>
-                <td>
-                    <button class="btn btn-primary font-12" style="height: 24px; margin: 2px; padding: 5px 10px;">...</button>
-                </td>
-            </tr>
-            <tr>
-                <td align="right">
-                    <span class="font-12">Create a Catalog :</span>
-                </td>
-                <td>
-                    <button class="btn btn-primary font-12" style="height: 24px; margin: 2px; padding: 5px 10px;">...</button>
-                </td>
-            </tr>
-            <tr>
-                <td align="right">
-                    <span class="font-12">Display a Catalog :</span>
-                </td>
-                <td>
-                    <button class="btn btn-primary font-12" style="height: 24px; margin: 2px; padding: 0px 10px;">Submit</button>
+                <td colspan="2" align="center">
+                    <div class="d-flex mt-3" style="width: 100px; margin-left: 10px; margin-top: 5px;">
+                        <button class="btn btn-primary font-12" style="height: 30px; margin-left: 8px; padding: 0px 20px;">Filter</button>
+                        <button class="btn btn-primary font-12" style="height: 30px; margin-left: 8px; min-width: 100px; padding: 0px 20px;">Show All</button>
+                        <button class="btn btn-primary font-12 ml-3" style="height: 30px; margin-left: 8px; padding: 0px 20px;">Export</button>
+                        <select class="ml-2 font-12" style="height: 30px">
+                            <option selected>Excel</option>
+                            <option>Print</option>
+                            <option>HTML</option>
+                            <option>PDF</option>
+                        </select>
+                    </div>
                 </td>
             </tr>
         </table>
