@@ -42,26 +42,20 @@
         <div class="col-md-6">
             <p class="text-white subheader-title">@ViewData["Title"]</p>
             <div class="d-flex">
-                <div>
-                    <label class="text-white subheader-company font-12" style="padding: 3px;">Select Company: </label>
-                    <select class="ml-2 font-12">
-                        <option selected>Cune Press</option>
-                        <option>Kinesis Construction</option>
-                        <option>Cune MultiSite</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="text-white subheader-company font-12" style="padding: 3px;">Display Filters: </label>
-                    <select class="ml-2 font-12">
-                        <option selected>Frequent</option>
-                        <option> - All - </option>
-                    </select>
-                </div>
+                <span class="text-white font-14" style="margin-left: 30px;">Seller(Company): </span>
+                <span class="text-white font-14 font-weight-bold ml-2">Cune Press </span>
             </div>
         </div>
         <div class="col-md-6">
             <table class="subheader-table mr-4">
                 <tr>
+                    <td align="left" valign="top" width="150px" style="border-left: 1px solid white;">
+                        <a href="#" class="font-12 text-white">Cases</a><br />
+                        <a href="#" class="font-12 text-white">View Tasks</a>
+                    </td>
+                    <td align="left" valign="top" width="150px" style="border-left: 1px solid white;">
+                        <a href="#" class="font-12 text-white">Tasks Admin</a>
+                    </td>
                 </tr>
             </table>
         </div>
@@ -72,11 +66,587 @@
     <div class="panel-title">
         <span class="font-15 text-white ml-3" style="font-weight: 500; line-height: 40px;">FILTERS</span>
     </div>
+    <div class="col-md-12" style="border-bottom: 1px solid #b7b7b7;">
+        <table style="width: 100%;">
+            <tr>
+                <td width="25%"></td>
+                <td width="25%" valign="top">
+                    <div class="mt-2">
+                        <a href="#" class="font-12 font-weight-bold home-link-color">View Companies</a> <br />
+                        <a href="#" class="font-12 font-weight-bold home-link-color">View Warehouses</a> <br />
+                        <a href="#" class="font-12 font-weight-bold home-link-color">View Inventory</a>
+                    </div>
+                </td>
+                <td width="25%"></td>
+                <td width="25%" valign="top">
+                    <div class="mt-2 mb-2">
+                        <a href="#" class="font-12 font-weight-bold home-link-color">View Account Info</a> <br />
+                        <a href="#" class="font-12 font-weight-bold home-link-color">View Ship-to Addresses</a> <br />
+                        <a href="#" class="font-12 font-weight-bold home-link-color">View Contact Address</a> <br />
+                        <a href="#" class="font-12 font-weight-bold home-link-color">View Contact Type</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <table class="mt-2" style="width: 100%;">
+            <tr>
+                <td width="40%" valign="top" align="right">
+                    <span class="font-13">Individual (cash account): </span>
+                </td>
+                <td width="40%" valign="top">
+                </td>
+            </tr>
+            <tr>
+                <td width="40%" valign="top" align="right">
+                    <span class="font-13">Wholesale Account: </span>
+                </td>
+                <td width="40%" valign="top">
+                    <span class="font-13 font-weight-bold">Ingram Book Company</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <table class="mt-2" style="width: 100%;">
+            <tr>
+                <td colspan="4" valign="top">
+                    <span class="font-13 font-weight-bold">Invoice Status (select one) </span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" valign="top">
+                    <label class="container mt-2">
+                        Standard
+                        <input type="checkbox" checked>
+                        <span class="checkmark"></span>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td width="40%" valign="top">
+                    <span class="font-13">Negative</span><br />
+                    <label class="container mt-2">
+                        Return
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        Claim
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        Fee
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </td>
+                <td width="40%" valign="top">
+                    <span class="font-13">100% Discount</span><br />
+                    <label class="container mt-2">
+                        Author Copies
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        Promo
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        Contest Price
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        Donation
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        Other
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </td>
+                <td width="20%" valign="top">
+                    <a href="#" class="font-13 font-weight-bold home-link-color mt-1">Free</a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" valign="top">
+                    <label class="container mt-4">
+                        Inventory too low - error message
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container mt-2 mb-4">
+                        Inventory too low - warning message
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" valign="top">
+                    <span class="font-13 font-weight-bold">Invoice Type</span><br />
+                </td>
+            </tr>
+            <tr>
+                <td width="40%" valign="top">
+                    <span class="font-13">In State</span><br />
+                    <label class="container mt-2">
+                        Wholesale
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        Retail
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </td>
+                <td width="40%" valign="top">
+                    <span class="font-13">Out of State</span><br />
+                    <label class="container mt-2">
+                        Wholesale
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        Retail
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </td>
+                <td width="20%" valign="top">
+                    <span class="font-13">&nbsp;</span><br />
+                    <label class="container mt-2">
+                        Free
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" valign="top">
+                    <span class="font-13">Current State for Seller(Company): Tennessee</span><br />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="col-md-12 mb-3 mt-2" style="border-bottom: 1px solid #b7b7b7;">
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <table style="width: 100%">
+            <tr>
+                <td width="40%" align="right">
+                    <span class="font-12">Our Invoice Date:</span>
+                </td>
+                <td>
+                    <input type="text" class="pl-1 font-12 mb-2" value="03/16/2021" style="width: 150px; height: 25px;" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <span class="font-12">Ship to Address:</span>
+                </td>
+                <td>
+                    <textarea class="font-12" rows="6" cols="30">
+Ingram Book Company
+One Ingram Bvd
+PO Box 3006
+One Ingram Blvd
+La Vergne, TN 37086
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <span class="font-12">Invoice #:</span>
+                </td>
+                <td>
+                    <input type="text" class="pl-1 font-12 mb-2" value="13227" style="width: 150px; height: 25px;" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <span class="font-12">Warehouse:</span>
+                </td>
+                <td>
+                    <select class="font-12 mb-2" style="height: 30px; width: 150px;">
+                        <option>Unit Packaging</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <span class="font-12">Shipping Date:</span>
+                </td>
+                <td>
+                    <input type="text" class="pl-1 font-12" value="03/16/2021" style="width: 150px; height: 25px;" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-6 mb-4">
+        <table style="width: 100%">
+            <tr>
+                <td width="40%" align="right">
+                    <span class="font-12">Payment Terms:</span>
+                </td>
+                <td>
+                    <select class="font-12" style="height: 30px; width: 150px;">
+                        <option>0 Days(Cash)</option>
+                        <option>30 Days</option>
+                        <option>60 Days</option>
+                        <option selected>90 Days</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td align="right"></td>
+                <td>
+                    <div class="mt-1">
+                        <a href="#" class="font-12 font-weight-bold home-link-color">Get Ship to Address</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td align="right"></td>
+                <td>
+                    <div class="mt-1 mb-1">
+                        <a href="#" class="font-12 font-weight-bold home-link-color">Get Contact Address</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <span class="font-12">Sales Tax Rate:</span>
+                </td>
+                <td>
+                    <input type="text" class="pl-1 font-12 mb-2 mt-2" value="" style="width: 150px; height: 25px;" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <span class="font-12">Customer PO#:</span>
+                </td>
+                <td>
+                    <input type="text" class="pl-1 font-12 mb-2" value="" style="width: 150px; height: 25px;" />
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <span class="font-12">PO Date:</span>
+                </td>
+                <td>
+                    <input type="text" class="pl-1 font-12 mb-2" value="03/16/2021" style="width: 150px; height: 25px;" />
+                </td>
+            </tr>%
+            <tr>
+                <td align="right">
+                    <span class="font-12">Carrier:</span>
+                </td>
+                <td>
+                    <input type="text" class="pl-1 font-12 mb-2" value="" style="width: 150px; height: 25px;" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-12 mt-2 mb-5">
+        <table style="width: 80%; margin-left:10%">
+            <tr>
+                <td>
+                    <button class="btn btn-gray font-12" style="height: 30px; margin-left: 8px; padding: 0px 20px;">New Record</button>
+                </td>
+                <td align="right">
+                    <p class="font-13 mb-0">
+                        A Product will not appear unless it has inventory in the selected Warehouse. Legacy Products are not shown.
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <table id="example" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>F</th>
+                    <th>Pr Type</th>
+                    <th>Binding Type</th>
+                    <th>EFTRU</th>
+                    <th>ISBN-10/SKU</th>
+                    <th>ISBN/Part#</th>
+                    <th>Product</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>%</th>
+                    <th>Totoal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <label class="container" style=" margin-top: -8px !important; margin-left: 15px;">
+                            <input type="checkbox" checked>
+                            <span class="checkmark"></span>
+                        </label>
+                    </td>
+                    <td>
+                        <select class="font-12" style="height: 25px; width: 100%;">
+                            <option selected>Books</option>
+                            <option>Utility Products</option>
+                            <option>Other Sales</option>
+                            <option>Msc Non Sale</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="font-12" style="height: 25px; width: 100%;">
+                            <option>- Select One -</option>
+                            <option>Hardback</option>
+                            <option>Paperback</option>
+                            <option selected>Plastic Ring</option>
+                            <option>Flash Cards</option>
+                            <option>Wire Spiral</option>
+                            <option>eBooks (Smashwords)</option>
+                            <option>Kindle</option>
+                            <option>eBook (extra ISBN)</option>
+                            <option>Plastic Comb</option>
+                            <option>Kindle - Except (pre-pub)</option>
+                            <option>Proof/Galley</option>
+                            <option>Globe</option>
+                        </select>
+                    </td>
+                    <td>
+                        <label class="container" style=" margin-top: -8px !important; margin-left: 15px;">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" class="pl-1 font-12" value="161457345X" style="width: 100%; height: 25px;" />
+                    </td>
+                    <td>
+                        <input type="text" class="pl-1 font-12" value="978161457456" style="width: 100%; height: 25px;" />
+                    </td>
+                    <td>
+                        <select class="font-12" style="height: 25px; width: 100%;">
+                            <option>- Select -</option>
+                            <option>Biblical Time Out of Mind Hardback</option>
+                            <option>Biblical Time Out of Mind Paperback</option>
+                            <option>Curse of the Achile Lauro Paperback</option>
+                            <option>English from the Roots Up, Vol I Flash Cards</option>
+                            <option>English from the Roots Up, Vol I Hardback</option>
+                            <option selected>English from the Roots Up, Vol I Plastic Ring</option>
+                            <option>English from the Roots Up, Vol II Flash Cards</option>
+                            <option>English from the Roots Up, Vol II Hardback</option>
+                            <option>English from the Roots Up, Vol II Plastic Ring</option>
+                            <option>Gulen's Dialogue on Education Hardback</option>
+                            <option>Gulen's Dialogue on Education Paperback</option>
+                            <option>Inside Syna - A Physician's Memoir Hardback</option>
+                            <option>Inside Syna - A Physician's Memoir Kindle</option>
+                            <option>Inside Syna - A Physician's Memoir Paperback</option>
+                            <option>Inside Syna - A Physician's Memoir Proof/Galley</option>
+                            <option>Leaving Syna Paperback</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="pl-1 font-12" value="12" style="width: 100%; height: 25px;" />
+                    </td>
+                    <td>
+                        <input type="text" class="pl-1 font-12" value="29.95" style="width: 100%; height: 25px;" />
+                    </td>
+                    <td>
+                        <input type="text" class="pl-1 font-12" value="32" style="width: 100%; height: 25px;" />
+                    </td>
+                    <td>
+                        <input type="text" class="pl-1 font-12" value="244.39" style="width: 100%; height: 25px;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="container" style=" margin-top: -8px !important; margin-left: 15px;">
+                            <input type="checkbox" checked>
+                            <span class="checkmark"></span>
+                        </label>
+                    </td>
+                    <td>
+                        <select class="font-12" style="height: 25px; width: 100%;">
+                            <option selected>Books</option>
+                            <option>Utility Products</option>
+                            <option>Other Sales</option>
+                            <option>Msc Non Sale</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="font-12" style="height: 25px; width: 100%;">
+                            <option>- Select One -</option>
+                            <option>Hardback</option>
+                            <option selected>Paperback</option>
+                            <option>Plastic Ring</option>
+                            <option>Flash Cards</option>
+                            <option>Wire Spiral</option>
+                            <option>eBooks (Smashwords)</option>
+                            <option>Kindle</option>
+                            <option>eBook (extra ISBN)</option>
+                            <option>Plastic Comb</option>
+                            <option>Kindle - Except (pre-pub)</option>
+                            <option>Proof/Galley</option>
+                            <option>Globe</option>
+                        </select>
+                    </td>
+                    <td>
+                        <label class="container" style=" margin-top: -8px !important; margin-left: 15px;">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" class="pl-1 font-12" value="1614570787" style="width: 100%; height: 25px;" />
+                    </td>
+                    <td>
+                        <input type="text" class="pl-1 font-12" value="978161450783" style="width: 100%; height: 25px;" />
+                    </td>
+                    <td>
+                        <select class="font-12" style="height: 25px; width: 100%;">
+                            <option>- Select -</option>
+                            <option>Biblical Time Out of Mind Hardback</option>
+                            <option>Biblical Time Out of Mind Paperback</option>
+                            <option selected>Curse of the Achile Lauro Paperback</option>
+                            <option>English from the Roots Up, Vol I Flash Cards</option>
+                            <option>English from the Roots Up, Vol I Hardback</option>
+                            <option>English from the Roots Up, Vol I Plastic Ring</option>
+                            <option>English from the Roots Up, Vol II Flash Cards</option>
+                            <option>English from the Roots Up, Vol II Hardback</option>
+                            <option>English from the Roots Up, Vol II Plastic Ring</option>
+                            <option>Gulen's Dialogue on Education Hardback</option>
+                            <option>Gulen's Dialogue on Education Paperback</option>
+                            <option>Inside Syna - A Physician's Memoir Hardback</option>
+                            <option>Inside Syna - A Physician's Memoir Kindle</option>
+                            <option>Inside Syna - A Physician's Memoir Paperback</option>
+                            <option>Inside Syna - A Physician's Memoir Proof/Galley</option>
+                            <option>Leaving Syna Paperback</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="pl-1 font-12" value="0" style="width: 100%; height: 25px;" />
+                    </td>
+                    <td>
+                        <input type="text" class="pl-1 font-12" value="21.95" style="width: 100%; height: 25px;" />
+                    </td>
+                    <td>
+                        <input type="text" class="pl-1 font-12" value="32" style="width: 100%; height: 25px;" />
+                    </td>
+                    <td>
+                        <input type="text" class="pl-1 font-12" value="0.00" style="width: 100%; height: 25px;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="container" style=" margin-top: -8px !important; margin-left: 15px;">
+                            <input type="checkbox" checked>
+                            <span class="checkmark"></span>
+                        </label>
+                    </td>
+                    <td>
+                        <select class="font-12" style="height: 25px; width: 100%;">
+                            <option selected>Books</option>
+                            <option>Utility Products</option>
+                            <option>Other Sales</option>
+                            <option>Msc Non Sale</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="font-12" style="height: 25px; width: 100%;">
+                            <option>- Select One -</option>
+                            <option selected>Hardback</option>
+                            <option>Paperback</option>
+                            <option>Plastic Ring</option>
+                            <option>Flash Cards</option>
+                            <option>Wire Spiral</option>
+                            <option>eBooks (Smashwords)</option>
+                            <option>Kindle</option>
+                            <option>eBook (extra ISBN)</option>
+                            <option>Plastic Comb</option>
+                            <option>Kindle - Except (pre-pub)</option>
+                            <option>Proof/Galley</option>
+                            <option>Globe</option>
+                        </select>
+                    </td>
+                    <td>
+                        <label class="container" style=" margin-top: -8px !important; margin-left: 15px;">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" class="pl-1 font-12" value="" style="width: 100%; height: 25px;" />
+                    </td>
+                    <td>
+                        <input type="text" class="pl-1 font-12" value="" style="width: 100%; height: 25px;" />
+                    </td>
+                    <td>
+                        <select class="font-12" style="height: 25px; width: 100%;">
+                            <option selected>- Select -</option>
+                            <option>Biblical Time Out of Mind Hardback</option>
+                            <option>Biblical Time Out of Mind Paperback</option>
+                            <option>Curse of the Achile Lauro Paperback</option>
+                            <option>English from the Roots Up, Vol I Flash Cards</option>
+                            <option>English from the Roots Up, Vol I Hardback</option>
+                            <option>English from the Roots Up, Vol I Plastic Ring</option>
+                            <option>English from the Roots Up, Vol II Flash Cards</option>
+                            <option>English from the Roots Up, Vol II Hardback</option>
+                            <option>English from the Roots Up, Vol II Plastic Ring</option>
+                            <option>Gulen's Dialogue on Education Hardback</option>
+                            <option>Gulen's Dialogue on Education Paperback</option>
+                            <option>Inside Syna - A Physician's Memoir Hardback</option>
+                            <option>Inside Syna - A Physician's Memoir Kindle</option>
+                            <option>Inside Syna - A Physician's Memoir Paperback</option>
+                            <option>Inside Syna - A Physician's Memoir Proof/Galley</option>
+                            <option>Leaving Syna Paperback</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="pl-1 font-12" value="0" style="width: 100%; height: 25px;" />
+                    </td>
+                    <td>
+                        <input type="text" class="pl-1 font-12" value="0.00" style="width: 100%; height: 25px;" />
+                    </td>
+                    <td>
+                        <input type="text" class="pl-1 font-12" value="32" style="width: 100%; height: 25px;" />
+                    </td>
+                    <td>
+                        <input type="text" class="pl-1 font-12" value="0.00" style="width: 100%; height: 25px;" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="width: 80%; margin-left:10%">
+            <tr>
+                <td>
+                    <button class="btn btn-gray font-12 mt-2" style="height: 30px; margin-left: 8px; padding: 0px 20px;">Save</button>
+                    <button class="btn btn-gray font-12 mt-2" style="height: 30px; margin-left: 8px; padding: 0px 20px;">Return to Customer Home</button>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
 
 @section Scripts {
     <script type="text/javascript" src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js" asp-append-version="true"></script>
     <script type="text/javascript" src="//cdn.datatables.net/select/1.3.2/js/dataTables.select.min.js" asp-append-version="true"></script>
     <script>
+        $('#example').DataTable({
+            searching: false,
+            ordering: false,
+            paging: false,
+            info: false,
+            columnDefs: [
+                { "className": "dt-center", "targets": "_all" }
+            ]
+        });
     </script>
 }

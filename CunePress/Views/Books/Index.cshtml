@@ -286,103 +286,107 @@
             </tr>
         </table>
     </div>
-    <div class="col-md-6">
-        <table class="filter-table m-4" style="width: 100%;">
-            <tr>
-                <td width="200px" align="right">
-                    <span class="font-12">Export Options :</span>
-                </td>
-                <td>
-                    <a href="#" class="font-12 home-link-color"> Header Text</a>
-                </td>
-            </tr>
-            <tr>
-                <td align="right">
-                    <span class="font-12">Format :</span>
-                </td>
-                <td>
-                    <label class="container">
-                        Paragraph
-                        <input type="radio" name="radio_format">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        Details
-                        <input type="radio" name="radio_format">
-                        <span class="checkmark"></span>
-                    </label>
-                </td>
-            </tr>
-            <tr>
-                <td align="right">
-                    <span class="font-12">Selection :</span>
-                </td>
-                <td>
-                    <label class="container">
-                        Selected Catalog
-                        <input type="radio" name="selection">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        Group
-                        <input type="radio" name="selection">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        Selected Books
-                        <input type="radio" name="selection">
-                        <span class="checkmark"></span>
-                    </label>
-                </td>
-            </tr>
-            <tr>
-                <td align="right">
-                    <span class="font-12">Export To :</span>
-                </td>
-                <td>
-                    <label class="container">
-                        Word.doc
-                        <input type="radio" name="export_to">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        Xlsx format
-                        <input type="radio" name="export_to">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        Xls format
-                        <input type="radio" name="export_to">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        Csv format (comma delimited)
-                        <input type="radio" name="export_to">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        Text format (tab delimited)
-                        <input type="radio" name="export_to">
-                        <span class="checkmark"></span>
-                    </label>
-                </td>
-            </tr>
-            <tr>
-                <td align="right">
-                </td>
-                <td>
-                    <button class="btn btn-gray font-14" style="height: 26px; margin: 10px; padding: 0px 10px;">Export</button>
-                </td>
-            </tr>
-        </table>
+    <div class="col-md-6 d-flex">
+        <span class="font-12" style="margin-top: 30px;">Export Options :</span>
+        <button class="btn btn-gray font-12" onclick="showExportOption()" style="height: 24px; margin: 25px 10px; padding: 5px 10px;">...</button>
+        <div class="no-display" id="export_modal">
+            <table class="filter-table" style="width: 100%;">
+                <tr>
+                    <td width="200px" align="right">
+                        <span class="font-12">Export Options :</span>
+                    </td>
+                    <td>
+                        <a href="#" class="font-12 home-link-color"> Header Text</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <span class="font-12">Format :</span>
+                    </td>
+                    <td>
+                        <label class="container">
+                            Paragraph
+                            <input type="radio" name="radio_format">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container">
+                            Details
+                            <input type="radio" name="radio_format">
+                            <span class="checkmark"></span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <span class="font-12">Selection :</span>
+                    </td>
+                    <td>
+                        <label class="container">
+                            Selected Catalog
+                            <input type="radio" name="selection">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container">
+                            Group
+                            <input type="radio" name="selection">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container">
+                            Selected Books
+                            <input type="radio" name="selection">
+                            <span class="checkmark"></span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <span class="font-12">Export To :</span>
+                    </td>
+                    <td>
+                        <label class="container">
+                            Word.doc
+                            <input type="radio" name="export_to">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container">
+                            Xlsx format
+                            <input type="radio" name="export_to">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container">
+                            Xls format
+                            <input type="radio" name="export_to">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container">
+                            Csv format (comma delimited)
+                            <input type="radio" name="export_to">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container">
+                            Text format (tab delimited)
+                            <input type="radio" name="export_to">
+                            <span class="checkmark"></span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                    </td>
+                    <td>
+                        <button class="btn btn-gray font-14" style="height: 26px; margin: 10px; padding: 0px 10px;">Export</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
     <div class="col-md-12 mb-4">
         <div class="text-center">
-            <span class="font-14 font-weight-bold"># of pages in data table  :</span><span class="font-14 font-weight-bold ml-1">3</span>
-            <span class="font-14 font-weight-bold ml-2">Data from all pages  :</span><span class="font-14 font-weight-bold ml-1"></span>
-            <span class="font-14 font-weight-bold ml-2"># of Titles  :</span><span class="font-14 font-weight-bold ml-1">15</span>
-            <span class="font-14 font-weight-bold ml-2"># of bidnings  :</span><span class="font-14 font-weight-bold ml-1">30</span>
-            <span class="font-14 font-weight-bold ml-2"># of Titles with Status = AC  :</span><span class="font-14 font-weight-bold ml-1">13</span>
+            <span class="font-14 font-weight-bold"># of pages in data table  :</span><span class="font-14 font-weight-bold ml-1">1</span>
+            <span class="font-14 font-weight-bold ml-2">Data from all pages  :</span><span class="font-14 font-weight-bold ml-1">10</span>
+            <span class="font-14 font-weight-bold ml-2"># of Titles  :</span><span class="font-14 font-weight-bold ml-1">3</span>
+            <span class="font-14 font-weight-bold ml-2"># of bidnings  :</span><span class="font-14 font-weight-bold ml-1">7</span>
+            <span class="font-14 font-weight-bold ml-2"># of Titles with Status = AC  :</span><span class="font-14 font-weight-bold ml-1">7</span>
         </div>
         <table id="example" class="display" style="width:100%">
             <thead>
@@ -402,7 +406,7 @@
                     <th>Sales</th>
                     <th>ISBN 13</th>
                     <th>List $</th>
-                    <th>Awail</th>
+                    <th>Status</th>
                     <th>Meta</th>
                     <th>Delete</th>
                     <th>View Deleted</th>
@@ -498,7 +502,7 @@
                     <td><img src="~/anastasia.jpg" width="38px" height="40px" style="margin-left: 8px;" /></td>
                     <td>0</td>
                     <td>528</td>
-                    <td><a class="home-link-color" href="#">YEJ</a></td>
+                    <td><a class="home-link-color" href="#">LOS</a></td>
                     <td>A Year at the Edge of the Jungle</td>
                     <td></td>
                     <td>Frederic Hunter</td>
@@ -619,6 +623,132 @@
                     <td></td>
                     <td></td>
                 </tr>
+                <tr>
+                    <td class="book"></td>
+                    <td><img src="~/anastasia.jpg" width="38px" height="40px" style="margin-left: 8px;" /></td>
+                    <td>0</td>
+                    <td>422</td>
+                    <td><a class="home-link-color" href="#">PLW</a></td>
+                    <td>A Month at the Edge of the Wood</td>
+                    <td></td>
+                    <td>Hunter</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><a class="home-link-color" href="#">Delete</a></td>
+                    <td><a class="home-link-color" style="padding-left: 15px; padding-right: 15px;" href="#">View</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>83</td>
+                    <td>Hardback</td>
+                    <td>Cune Classics</td>
+                    <td>2021</td>
+                    <td>Fall</td>
+                    <td><a class="home-link-color" href="#">Link</a></td>
+                    <td>1</td>
+                    <td>3</td>
+                    <td><a class="home-link-color" href="#">Link</a></td>
+                    <td>9781885942388</td>
+                    <td>34.95</td>
+                    <td>AC</td>
+                    <td><a class="home-link-color" href="#">Link</a></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>86</td>
+                    <td>Paperback</td>
+                    <td>Cune Classics</td>
+                    <td>2021</td>
+                    <td>Fall</td>
+                    <td><a class="home-link-color" href="#">Link</a></td>
+                    <td>12</td>
+                    <td>14</td>
+                    <td><a class="home-link-color" href="#">Link</a></td>
+                    <td>9781885942395</td>
+                    <td>17.95</td>
+                    <td>AC</td>
+                    <td><a class="home-link-color" href="#">Link</a></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="book"></td>
+                    <td><img src="~/anastasia.jpg" width="38px" height="40px" style="margin-left: 8px;" /></td>
+                    <td>0</td>
+                    <td>422</td>
+                    <td><a class="home-link-color" href="#">YOS</a></td>
+                    <td>A Month at the Edge of the Wood</td>
+                    <td></td>
+                    <td>Hunter</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><a class="home-link-color" href="#">Delete</a></td>
+                    <td><a class="home-link-color" style="padding-left: 15px; padding-right: 15px;" href="#">View</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>83</td>
+                    <td>Hardback</td>
+                    <td>Cune Classics</td>
+                    <td>2021</td>
+                    <td>Fall</td>
+                    <td><a class="home-link-color" href="#">Link</a></td>
+                    <td>1</td>
+                    <td>3</td>
+                    <td><a class="home-link-color" href="#">Link</a></td>
+                    <td>9781885942388</td>
+                    <td>34.95</td>
+                    <td>AC</td>
+                    <td><a class="home-link-color" href="#">Link</a></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>86</td>
+                    <td>Paperback</td>
+                    <td>Cune Classics</td>
+                    <td>2021</td>
+                    <td>Fall</td>
+                    <td><a class="home-link-color" href="#">Link</a></td>
+                    <td>12</td>
+                    <td>14</td>
+                    <td><a class="home-link-color" href="#">Link</a></td>
+                    <td>9781885942395</td>
+                    <td>17.95</td>
+                    <td>AC</td>
+                    <td><a class="home-link-color" href="#">Link</a></td>
+                    <td></td>
+                    <td></td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -646,5 +776,10 @@
                 selector: 'td:first-child'
             }
         });
+        function showExportOption() {
+            var dhxWindow = new dhx.Window({ width: 600, height: 370, title: "Export Option", movable: true, closable: true, modal: true });
+            dhxWindow.show();
+            dhxWindow.attachHTML($("#export_modal").html());
+        }
     </script>
 }
