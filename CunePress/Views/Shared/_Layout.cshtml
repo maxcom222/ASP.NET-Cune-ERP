@@ -21,8 +21,7 @@
             <a asp-area="" asp-controller="Home" asp-action="Index">10D</a>
             @if (@ViewData["Title"] != "Home Page")
             {
-                @*<span class="text-white">@ViewData["Title"]</span>*@
-                @ViewData["Title"]
+                <span class="text-white">@ViewData["Title"]</span>
             }
         </label>
         @if (SignInManager.IsSignedIn(User))
